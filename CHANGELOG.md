@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1] - 2022-12-03
+
+### Added
+- Int extensions
+- Collection extensions (Dictionary, Enumerable, List)
+- Unity type extensions (Color, Rect, RectInt, Bounds, BoundsInt)
+- Unity component extensions (GameObject, Component, Behaviour, Transform, Animator)
+
 ## [1.0.0] - 2022-12-03
 
 ### Added

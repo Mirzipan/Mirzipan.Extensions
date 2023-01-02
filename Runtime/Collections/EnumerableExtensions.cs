@@ -15,6 +15,11 @@ namespace Mirzipan.Extensions
             return @this ?? Enumerable.Empty<T>();
         }
 
+        public static IEnumerable<T> ValueOrDefault<T>(IEnumerable<T> @this, IEnumerable<T> @default)
+        {
+            return !IsNullOrEmpty(@this) ? @this : @default;
+        }
+
         public static IDictionary<TKey, int> ToCountDictionary<TKey>(this IEnumerable<TKey> @this)
         {
             return @this.GroupBy(e => e).ToDictionary(e => e.Key, e => e.Count());

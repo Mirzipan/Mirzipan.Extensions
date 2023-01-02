@@ -13,6 +13,21 @@ namespace Mirzipan.Extensions.Unity
         {
             return new Color(@this.r + amount, @this.g + amount, @this.b + amount, @this.a);
         }
+
+        public static Color WithR(this Color @this, float red)
+        {
+            return new Color(red, @this.g, @this.b, @this.a);
+        }
+
+        public static Color WithG(this Color @this, float green)
+        {
+            return new Color(@this.r, green, @this.b, @this.a);
+        }
+
+        public static Color WithB(this Color @this, float blue)
+        {
+            return new Color(@this.r, @this.g, blue, @this.a);
+        }
         
         public static Color WithAlpha(this Color @this, float alpha)
         {

@@ -1,7 +1,7 @@
 ﻿using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace Mirzipan.Extensions.Unity
+namespace Mirzipan.Extensions
 {
     public static class ButtonExtensions
     {

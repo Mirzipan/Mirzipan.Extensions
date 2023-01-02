@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Mirzipan.Extensions.Unity
+namespace Mirzipan.Extensions
 {
     public static class RectExtensions
     {

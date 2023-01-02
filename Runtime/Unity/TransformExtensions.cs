@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Text;
-using Mirzipan.Extensions.Text;
 
-namespace Mirzipan.Extensions.Unity
+namespace Mirzipan.Extensions
 {
     public static class TransformExtensions
     {

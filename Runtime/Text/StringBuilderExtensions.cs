@@ -1,9 +1,57 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Mirzipan.Extensions.Text
+namespace Mirzipan.Extensions
 {
     public static class StringBuilderExtensions
     {
+        #region Append
+
+        public static StringBuilder AppendIf<T>(this StringBuilder @this, Predicate<T> predicate, T value)
+        {
+            if (predicate(value))
+            {
+                @this.Append(value);
+            }
+            
+            return @this;
+        }
+
+        public static StringBuilder AppendIf<T>(this StringBuilder @this, Predicate<T> predicate, IEnumerable<T> values)
+        {
+            foreach (var entry in values)
+            {
+                if (!predicate(entry))
+                {
+                    continue;
+                }
+
+                @this.Append(entry);
+            }
+
+            return @this;
+        }
+
+        public static StringBuilder AppendIf<T>(this StringBuilder @this, Predicate<T> predicate, params T[] values)
+        {
+            foreach (var entry in values)
+            {
+                if (!predicate(entry))
+                {
+                    continue;
+                }
+
+                @this.Append(entry);
+            }
+
+            return @this;
+        }
+
+        #endregion Append
+        
+        #region Prepend
+        
         public static StringBuilder Prepend(this StringBuilder @this, object value)
         {
             return @this.Insert(0, value);
@@ -73,5 +121,7 @@ namespace Mirzipan.Extensions.Text
         {
             return @this.Insert(0, value);
         }
+
+        #endregion Prepend
     }
 }

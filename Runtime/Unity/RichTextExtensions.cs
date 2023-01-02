@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Mirzipan.Extensions.Unity
+namespace Mirzipan.Extensions
 {
-    public static class StringExtensions
+    public static class RichTextExtensions
     {
         public static string Colorize(this string @this, Color color)
         {

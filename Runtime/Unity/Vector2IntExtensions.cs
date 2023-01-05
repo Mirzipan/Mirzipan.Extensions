@@ -26,6 +26,11 @@ namespace Mirzipan.Extensions
             return new Vector2Int(@this.y, @this.y);
         }
 
+        public static Vector2Int YX(this Vector2Int @this)
+        {
+            return new Vector2Int(@this.y, @this.x);
+        }
+
         #endregion Get/Set
 
         #region Rotation

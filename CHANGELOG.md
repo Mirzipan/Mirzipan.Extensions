@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.1.1] - 2022-01-05
+
+### Fixed
+- Added missing meta files
+
 ## [1.1.0] - 2022-01-05
 
 ### Added

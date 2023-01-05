@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0] - 2022-01-05
+
+### Added
+- Unity type extensions (Color, Vector2, Vector2Int, Vector3, Vector3Int, Vector4)
+
+### Changed
+- Unity version bumped to 2021.3
+
 ## [1.0.2] - 2022-01-02
 
 ### Added

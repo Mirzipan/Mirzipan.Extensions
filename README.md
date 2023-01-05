@@ -5,116 +5,41 @@ Collection of extension and utility methods I can created or collected over the 
 ## C# Extensions
 
 ### Basic Types
-
-#### Boolean
-- Toggle
-- ToString
-- ToType
-
-#### Object
-- AsArray
-- AsList
-- AsHashSet
-- AsDictionary
-- Do
-- DoIfNotNull
-- Return
-- Validate
-
-#### String
-- IsNullOrEmpty
-- ValueOrDefault
-- NullIfEmpty
-- EmptyIfNull
+- Boolean
+- Object
+- String
 
 ### Complex Types
-
-#### Comparable
-- IsBetweenInclusive
-- IsBetweenExclusive
-
-#### DateTime
-- IsBetween
+- Comparable
+- DateTime
 
 ### Collections
-
-#### Array
-- IsNullOrEmpty
-- EmptyIfNull
-
-#### Collection
-- IsNullOrEmpty
-
-#### Dictionary
-- IsNullOrEmpty
-
-#### Enumerable
-- IsNullOrEmpty
-- EmptyIfNull
-- ToCountDictionary
-- ToDictionary
-
-#### HashSet
-- AddRange
-- AddRange
+- Array
+- Collection
+- Dictionary
+- Enumerable
+- HashSet
 
 ## Unity Extensions
 
 ### Basic Types
-
-#### String
-These are all RichText tags for use with TextMeshPro
-- Colorize
-- Bold
-- Italic
-- Underline
-- Strikethrough
-- Lowercase
-- Uppercase
-- Smallcaps
-- Subscript
-- Superscript
-- Size
-- LineHeight
-- LineIndent
-- Align
+- String (RichText tags for use with TextMeshPro)
 
 ### Unity Types
-
-#### Color
-- Darken
-- Lighten
-- WithAlpha
-- WithAlphaMultiplied
-- WithRGBMultiplied
-
-#### RectInt
-- Encapsulate
+- Color
+- RectInt
+- Vector2
+- Vector2Int
+- Vector3
+- Vector3Int
+- Vector4
 
 ### Basic Components
-
-#### GameObject
-- GetOrAddComponent
-
-#### Component
-- SetActive
-
-#### Transform
-- CopyPositionAndRotation
-- SetPositionX
-- SetPositionY
-- SetPositionZ
-- SetPositionXY
-- SetPositionXZ
-- SetPositionYZ
+- GameObject
+- Component
+- Transform
 
 ### UI
-
-#### Button
-- SetOnClickListener
-
-#### Slider
-- SetOnValueChangedListener
-
-#### Toggle
-- SetOnValueChangedListener
+- Button
+- Slider
+- Toggle

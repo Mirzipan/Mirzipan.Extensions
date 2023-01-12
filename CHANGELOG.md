@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.2] - 2022-01-12
+
+### Fixed
+- Added roman numerals for int
+- Added Vector3 -> Vector3 permutations
+- Added Vector3Int -> Vector3Int permutations
+- Added Vector4 -> Vector3 permutations
+
 ## [1.1.1] - 2022-01-05
 
 ### Fixed

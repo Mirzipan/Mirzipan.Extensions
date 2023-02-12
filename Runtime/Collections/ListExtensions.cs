@@ -1,9 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Mirzipan.Extensions.Collections
 {
     public static class ListExtensions
     {
+        public static bool IsNullOrEmpty<T>(this IList<T> @this) => @this == null || @this.Count == 0;
+        
+        public static bool NotNullOrEmpty<T>(this IList<T> @this) => !@this.IsNullOrEmpty();
+        
         public static bool IsIndexInRange<T>(this IList<T> @this, int index)
         {
             return index > 0 && index < @this.Count;
@@ -62,6 +67,22 @@ namespace Mirzipan.Extensions.Collections
             }
 
             @this.RemoveAt(lastIndex);
+        }
+
+        public static IList<T> FillBy<T>(this IList<T> @this, Func<int, T> valueFactory)
+        {
+            for (int i = 0; i < @this.Count; i++)
+            {
+                @this[i] = valueFactory(i);
+            }
+
+            return @this;
+        }
+
+        public static IList<T> Swap<T>(this IList<T> @this, int index1, int index2)
+        {
+            (@this[index1], @this[index2]) = (@this[index2], @this[index1]);
+            return @this;
         }
     }
 }

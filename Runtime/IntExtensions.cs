@@ -3,17 +3,7 @@
 namespace Mirzipan.Extensions
 {
     public static class IntExtensions
-    {
-        public static int Sign(this int @this)
-        {
-            return @this switch
-            {
-                > 0 => +1,
-                < 0 => -1,
-                _ => 0
-            };
-        }
-        
+    {        
         #region TimeSpan
 
         public static TimeSpan Days(this int @this)

@@ -6,20 +6,15 @@ namespace Mirzipan.Extensions
 {
     public static class ObjectExtensions
     {
-        public static T[] AsArray<T>(this T @this)
-        {
-            return new[] { @this };
-        }
+        public static bool Is<T>(this object @this) => @this is T;
+        
+        public static T As<T>(this object @this) where T : class => @this as T;
+        
+        public static T[] AsArray<T>(this T @this) => new[] { @this };
 
-        public static IList<T> AsList<T>(this T @this)
-        {
-            return new List<T> { @this };
-        }
+        public static IList<T> AsList<T>(this T @this) => new List<T> { @this };
 
-        public static HashSet<T> AsHashSet<T>(this T @this)
-        {
-            return new HashSet<T> { @this };
-        }
+        public static HashSet<T> AsHashSet<T>(this T @this) => new HashSet<T> { @this };
 
         public static IDictionary<TKey, TValue> AsDictionary<TKey, TValue>(this TValue @this,
             Func<TValue, TKey> keySelector)

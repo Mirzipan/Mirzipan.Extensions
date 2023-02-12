@@ -6,30 +6,19 @@ namespace Mirzipan.Extensions
     {
         #region String
         
-        public static bool IsNullOrEmpty(this string @this)
-        {
-            return string.IsNullOrEmpty(@this);
-        }
+        public static bool IsNullOrEmpty(this string @this) => string.IsNullOrEmpty(@this);
+        
+        public static bool NotNullOrEmpty(this string @this) => !string.IsNullOrEmpty(@this);
 
-        public static bool IsNullOrWhitespace(this string @this)
-        {
-            return string.IsNullOrWhiteSpace(@this);
-        }
+        public static bool IsNullOrWhitespace(this string @this) => string.IsNullOrWhiteSpace(@this);
         
-        public static string ValueOrDefault(this string @this, string @default)
-        {
-            return !string.IsNullOrEmpty(@this) ? @this : @default;
-        }
-        
-        public static string NullIfEmpty(this string @this)
-        {
-            return !string.IsNullOrEmpty(@this) ? @this : null;
-        }
-        
-        public static string EmptyIfNull(this string @this)
-        {
-            return !string.IsNullOrEmpty(@this) ? @this : string.Empty;
-        }
+        public static bool NotNullOrWhitespace(this string @this) => !string.IsNullOrWhiteSpace(@this);
+
+        public static string ValueOrDefault(this string @this, string @default) => !string.IsNullOrEmpty(@this) ? @this : @default;
+
+        public static string NullIfEmpty(this string @this) => !string.IsNullOrEmpty(@this) ? @this : null;
+
+        public static string EmptyIfNull(this string @this) => !string.IsNullOrEmpty(@this) ? @this : string.Empty;
 
         #endregion String
 

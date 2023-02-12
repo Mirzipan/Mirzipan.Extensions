@@ -21,6 +21,16 @@ namespace Mirzipan.Extensions.Unity
 
         #region Hierarchy
 
+        public static void SetParent(this GameObject @this, GameObject parent)
+        {
+            @this.transform.SetParent(parent.transform);
+        }
+
+        public static void SetParent(this GameObject @this, GameObject parent, bool worldPositionStays)
+        {
+            @this.transform.SetParent(parent.transform, worldPositionStays);
+        }
+        
         public static GameObject Root(this GameObject @this)
         {
             if (!@this.transform.parent)

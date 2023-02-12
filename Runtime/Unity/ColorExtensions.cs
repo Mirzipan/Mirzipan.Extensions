@@ -38,7 +38,51 @@ namespace Mirzipan.Extensions.Unity
 
         #endregion Get/Set
 
+        #region Equality
+
+        public static bool IsOpaque(this Color @this, float tolerance = float.Epsilon)
+        {
+            return @this.a >= 1 - tolerance;
+        }
+
+        public static bool IsWhite(this Color @this, float tolerance = float.Epsilon)
+        {
+            return @this.r + @this.g + @this.b >= 1 - tolerance;
+        }
+
+        public static bool IsBlack(this Color @this, float tolerance = float.Epsilon)
+        {
+            return @this.r + @this.g + @this.b <= tolerance;
+        }
+
+        public static bool IsReddish(this Color @this)
+        {
+            return @this.r > @this.g && @this.r > @this.b;
+        }
+
+        public static bool IsGreenish(this Color @this)
+        {
+            return @this.g > @this.r && @this.g > @this.b;
+        }
+
+        public static bool IsBlueish(this Color @this)
+        {
+            return @this.b > @this.r && @this.b > @this.g;
+        }
+
+        #endregion Equality
+
         #region Misc
+
+        public static Color Invert(this Color @this)
+        {
+            return new Color(1f - @this.r, 1f - @this.g, 1f - @this.b, @this.a);
+        }
+
+        public static Color Opaque(this Color @this)
+        {
+            return new Color(@this.r, @this.g, @this.b, 1f);
+        }
         
         public static Color Darken(this Color @this, float amount)
         {

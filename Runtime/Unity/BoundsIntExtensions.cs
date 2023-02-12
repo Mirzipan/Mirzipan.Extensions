@@ -5,6 +5,24 @@ namespace Mirzipan.Extensions
 {
     public static class BoundsIntExtensions
     {
+        #region Deconstruction
+
+        public static void Deconstruct(this BoundsInt @this, out float x, out float y, out float width, out float height)
+        {
+            x = @this.center.x;
+            y = @this.center.y;
+            width = @this.size.x;
+            height = @this.size.y;
+        }
+
+        public static void Deconstruct(this BoundsInt @this, out Vector2 center, out Vector2Int size)
+        {
+            center = @this.center;
+            size = @this.size.XY();
+        }
+
+        #endregion Deconstruction
+        
         public static void Encapsulate(this ref BoundsInt @this, Vector3Int point)
         {
             @this.SetMinMax(Vector3Int.Min(@this.min, point), Vector3Int.Max(@this.max, point));

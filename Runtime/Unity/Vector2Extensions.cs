@@ -2,8 +2,18 @@
 
 namespace Mirzipan.Extensions
 {
-    public static class Vector2Extensions
+    public static partial class Vector2Extensions
     {
+        #region Deconstruction
+
+        public static void Deconstruct(this Vector2 @this, out float x, out float y)
+        {
+            x = @this.x;
+            y = @this.y;
+        }
+
+        #endregion Deconstruction
+        
         #region Validation
 
         public static bool IsNaN(this Vector2 @this)
@@ -12,35 +22,20 @@ namespace Mirzipan.Extensions
         }
 
         #endregion Validation
-        
-        #region Get/Set
-        
+
+        #region With
+
         public static Vector2 WithX(this Vector2 @this, float x)
         {
             return new Vector2(x, @this.y);
         }
-        
+
         public static Vector2 WithY(this Vector2 @this, float y)
         {
             return new Vector2(@this.x, y);
         }
 
-        public static Vector2 XX(this Vector2 @this)
-        {
-            return new Vector2(@this.x, @this.x);
-        }
-
-        public static Vector2 YY(this Vector2 @this)
-        {
-            return new Vector2(@this.y, @this.y);
-        }
-
-        public static Vector2 YX(this Vector2 @this)
-        {
-            return new Vector2(@this.y, @this.x);
-        }
-
-        #endregion Get/Set
+        #endregion With
 
         #region Clamp
 

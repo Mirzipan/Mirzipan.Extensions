@@ -5,6 +5,24 @@ namespace Mirzipan.Extensions
 {
     public static class RectExtensions
     {
+        #region Deconstruction
+
+        public static void Deconstruct(this Rect @this, out float x, out float y, out float width, out float height)
+        {
+            x = @this.x;
+            y = @this.y;
+            width = @this.width;
+            height = @this.height;
+        }
+
+        public static void Deconstruct(this Rect @this, out Vector2 position, out Vector2 size)
+        {
+            position = @this.position;
+            size = @this.size;
+        }
+
+        #endregion Deconstruction
+        
         public static void SetMinMax(this ref Rect @this, Vector2 min, Vector2 max)
         {
             @this.min = min;

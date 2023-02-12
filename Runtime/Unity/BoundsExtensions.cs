@@ -5,6 +5,24 @@ namespace Mirzipan.Extensions
 {
     public static class BoundsExtensions
     {
+        #region Deconstruction
+
+        public static void Deconstruct(this Bounds @this, out float x, out float y, out float width, out float height)
+        {
+            x = @this.center.x;
+            y = @this.center.y;
+            width = @this.size.x;
+            height = @this.size.y;
+        }
+
+        public static void Deconstruct(this Bounds @this, out Vector2 center, out Vector2 size)
+        {
+            center = @this.center;
+            size = @this.size;
+        }
+
+        #endregion Deconstruction
+        
         public static void Encapsulate(this ref Bounds @this, IEnumerable<Vector3> points)
         {
             Vector3 min = @this.min;

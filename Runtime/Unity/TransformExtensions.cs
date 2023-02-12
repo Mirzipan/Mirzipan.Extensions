@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
+using Mirzipan.Extensions.Text;
 using UnityEngine;
 
 namespace Mirzipan.Extensions.Unity

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Mirzipan.Extensions
+namespace Mirzipan.Extensions.Collections
 {
     public static class CollectionExtensions
     {

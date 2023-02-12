@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Mirzipan.Extensions
+namespace Mirzipan.Extensions.Collections
 {
     public static class EnumerableExtensions
     {

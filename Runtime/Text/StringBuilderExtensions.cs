@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Mirzipan.Extensions
+namespace Mirzipan.Extensions.Text
 {
     public static class StringBuilderExtensions
     {

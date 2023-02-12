@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mirzipan.Extensions
+namespace Mirzipan.Extensions.Collections
 {
     public static class ArrayExtensions
     {

@@ -10,6 +10,11 @@ namespace Mirzipan.Extensions
         {
             return string.IsNullOrEmpty(@this);
         }
+
+        public static bool IsNullOrWhitespace(this string @this)
+        {
+            return string.IsNullOrWhiteSpace(@this);
+        }
         
         public static string ValueOrDefault(this string @this, string @default)
         {

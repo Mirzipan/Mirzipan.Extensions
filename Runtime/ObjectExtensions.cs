@@ -51,6 +51,16 @@ namespace Mirzipan.Extensions
             return !EqualityComparer<T>.Default.Equals(@this, default) ? f(@this) : @default;
         }
 
+        public static bool IsNull<T>(this T @this)
+        {
+            return EqualityComparer<T>.Default.Equals(@this, default);
+        }
+
+        public static bool IsNotNull<T>(this T @this)
+        {
+            return !EqualityComparer<T>.Default.Equals(@this, default);
+        }
+
         public static bool Validate<T>(this T @this, params Predicate<T>[] predicates)
         {
             return predicates.All(e => e(@this));

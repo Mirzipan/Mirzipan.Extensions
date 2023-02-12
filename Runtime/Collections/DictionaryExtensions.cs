@@ -23,5 +23,17 @@ namespace Mirzipan.Extensions.Collections
         {
             return @this.GetValueOrDefault(key, default(TValue));
         }
+
+        public static TValue GetOrAddValue<TKey, TValue>(this Dictionary<TKey, TValue> @this, TKey key, TValue @default)
+        {
+            if (@this.TryGetValue(key, out var value))
+            {
+                return value;
+            }
+
+            @this[key] = @default;
+            return @default;
+
+        }
     }
 }

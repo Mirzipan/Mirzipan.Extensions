@@ -46,5 +46,17 @@ namespace Mirzipan.Extensions.Unity.Math
         {
             @this.SetMinMax(Vector2Int.Min(@this.min, rect.min), Vector2Int.Max(@this.max, rect.max));
         }
+
+        public static Vector2 RandomPositionInside(this RectInt @this)
+        {
+            Vector2Int result = Vector2Int.zero;
+            Vector2Int min = @this.min;
+            Vector2Int max = @this.max;
+            
+            result.x = Random.Range(min.x, max.x);
+            result.y = Random.Range(min.y, max.y);
+
+            return result;
+        }
     }
 }

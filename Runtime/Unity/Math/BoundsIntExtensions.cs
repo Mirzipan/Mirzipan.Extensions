@@ -56,5 +56,18 @@ namespace Mirzipan.Extensions.Unity.Math
         {
             return new BoundsInt(@this.position, size);
         }
+
+        public static Vector3Int RandomPositionInside(this BoundsInt @this)
+        {
+            Vector3Int result = Vector3Int.zero;
+            Vector3Int min = @this.min;
+            Vector3Int max = @this.max;
+            
+            result.x = Random.Range(min.x, max.x);
+            result.y = Random.Range(min.y, max.y);
+            result.z = Random.Range(min.z, max.z);
+
+            return result;
+        }
     }
 }

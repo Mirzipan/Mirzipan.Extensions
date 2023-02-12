@@ -7,15 +7,7 @@ namespace Mirzipan.Extensions.Unity.Math
     {
         #region Deconstruction
 
-        public static void Deconstruct(this Bounds @this, out float x, out float y, out float width, out float height)
-        {
-            x = @this.center.x;
-            y = @this.center.y;
-            width = @this.size.x;
-            height = @this.size.y;
-        }
-
-        public static void Deconstruct(this Bounds @this, out Vector2 center, out Vector2 size)
+        public static void Deconstruct(this Bounds @this, out Vector3 center, out Vector3 size)
         {
             center = @this.center;
             size = @this.size;
@@ -45,6 +37,19 @@ namespace Mirzipan.Extensions.Unity.Math
         public static Bounds Resize(this ref Bounds @this, Vector3 size)
         {
             return new Bounds(@this.center, size);
+        }
+
+        public static Vector3 RandomPositionInside(this Bounds @this)
+        {
+            Vector3 result = Vector3.zero;
+            Vector3 min = @this.min;
+            Vector3 max = @this.max;
+            
+            result.x = Random.Range(min.x, max.x);
+            result.y = Random.Range(min.y, max.y);
+            result.z = Random.Range(min.z, max.z);
+
+            return result;
         }
     }
 }

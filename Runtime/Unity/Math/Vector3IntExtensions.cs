@@ -17,20 +17,11 @@ namespace Mirzipan.Extensions.Unity.Math
         
         #region With
 
-        public static Vector3Int WithX(this Vector3Int @this, int x)
-        {
-            return new Vector3Int(x, @this.y, @this.z);
-        }
+        public static Vector3Int WithX(this Vector3Int @this, int x) => new Vector3Int(x, @this.y, @this.z);
 
-        public static Vector3Int WithY(this Vector3Int @this, int y)
-        {
-            return new Vector3Int(@this.x, y, @this.z);
-        }
+        public static Vector3Int WithY(this Vector3Int @this, int y) => new Vector3Int(@this.x, y, @this.z);
 
-        public static Vector3Int WithZ(this Vector3Int @this, int z)
-        {
-            return new Vector3Int(@this.x, @this.y, z);
-        }
+        public static Vector3Int WithZ(this Vector3Int @this, int z) => new Vector3Int(@this.x, @this.y, z);
 
         #endregion With
 
@@ -41,6 +32,14 @@ namespace Mirzipan.Extensions.Unity.Math
             @this.x = Mathf.Clamp(@this.x, min, max);
             @this.y = Mathf.Clamp(@this.y, min, max);
             @this.z = Mathf.Clamp(@this.z, min, max);
+            return @this;
+        }
+
+        public static Vector3Int Clamp(this Vector3Int @this, Vector3Int min, Vector3Int max)
+        {
+            @this.x = Mathf.Clamp(@this.x, min.x, max.x);
+            @this.y = Mathf.Clamp(@this.y, min.y, max.y);
+            @this.z = Mathf.Clamp(@this.z, min.z, max.z);
             return @this;
         }
 

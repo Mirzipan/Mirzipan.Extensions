@@ -2,7 +2,7 @@
 
 namespace Mirzipan.Extensions.Unity.Math
 {
-    public static class Vector2IntExtensions
+    public static partial class Vector2IntExtensions
     {
         #region Deconstruction
 
@@ -16,65 +16,17 @@ namespace Mirzipan.Extensions.Unity.Math
         
         #region With
 
-        public static Vector2Int WithX(this Vector2Int @this, int x)
-        {
-            return new Vector2Int(x, @this.y);
-        }
+        public static Vector2Int WithX(this Vector2Int @this, int x) => new Vector2Int(x, @this.y);
 
-        public static Vector2Int WithY(this Vector2Int @this, int y)
-        {
-            return new Vector2Int(@this.x, y);
-        }
+        public static Vector2Int WithY(this Vector2Int @this, int y) => new Vector2Int(@this.x, y);
 
         #endregion With
 
-        #region Swizzle
-
-        public static Vector2Int XX(this Vector2Int @this)
-        {
-            return new Vector2Int(@this.x, @this.x);
-        }
-
-        public static Vector2Int YY(this Vector2Int @this)
-        {
-            return new Vector2Int(@this.y, @this.y);
-        }
-
-        public static Vector2Int YX(this Vector2Int @this)
-        {
-            return new Vector2Int(@this.y, @this.x);
-        }
-
-        public static Vector2Int XY(this Vector2Int @this)
-        {
-            return new Vector2Int(@this.x, @this.y);
-        }
-
-        public static void XY(ref this Vector2Int @this, Vector2Int other)
-        {
-            @this.x = other.x;
-            @this.y = other.y;
-        }
-
-        public static void YX(ref this Vector2Int @this, Vector2Int other)
-        {
-            @this.y = other.x;
-            @this.x = other.y;
-        }
-
-        #endregion Swizzle
-
         #region Rotation
         
-        public static Vector2Int RotateBy90CW(this Vector2Int @this)
-        {
-            return new Vector2Int(@this.y, -@this.x);
-        }
+        public static Vector2Int RotateBy90CW(this Vector2Int @this) => new Vector2Int(@this.y, -@this.x);
 
-        public static Vector2Int RotateBy90CCW(this Vector2Int @this)
-        {
-            return new Vector2Int(-@this.y, @this.x);
-        }
+        public static Vector2Int RotateBy90CCW(this Vector2Int @this) => new Vector2Int(-@this.y, @this.x);
 
         #endregion Rotation
 
@@ -84,6 +36,13 @@ namespace Mirzipan.Extensions.Unity.Math
         {
             @this.x = Mathf.Clamp(@this.x, min, max);
             @this.y = Mathf.Clamp(@this.y, min, max);
+            return @this;
+        }
+
+        public static Vector2Int Clamp(this Vector2Int @this, Vector2Int min, Vector2Int max)
+        {
+            @this.x = Mathf.Clamp(@this.x, min.x, max.x);
+            @this.y = Mathf.Clamp(@this.y, min.y, max.y);
             return @this;
         }
 

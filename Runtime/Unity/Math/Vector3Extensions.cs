@@ -26,29 +26,17 @@ namespace Mirzipan.Extensions.Unity.Math
 
         #region With
 
-        public static Vector3 WithX(this Vector3 @this, float x)
-        {
-            return new Vector3(x, @this.y, @this.z);
-        }
+        public static Vector3 WithX(this Vector3 @this, float x) => new Vector3(x, @this.y, @this.z);
 
-        public static Vector3 WithY(this Vector3 @this, float y)
-        {
-            return new Vector3(@this.x, y, @this.z);
-        }
+        public static Vector3 WithY(this Vector3 @this, float y) => new Vector3(@this.x, y, @this.z);
 
-        public static Vector3 WithZ(this Vector3 @this, float z)
-        {
-            return new Vector3(@this.x, @this.y, z);
-        }
+        public static Vector3 WithZ(this Vector3 @this, float z) => new Vector3(@this.x, @this.y, z);
 
         #endregion With
 
         #region Clamp
 
-        public static Vector3 Clamp01(this Vector3 @this)
-        {
-            return Clamp(@this, 0f, 1f);
-        }
+        public static Vector3 Clamp01(this Vector3 @this) => Clamp(@this, 0f, 1f);
 
         public static Vector3 Clamp(this Vector3 @this, float min, float max)
         {

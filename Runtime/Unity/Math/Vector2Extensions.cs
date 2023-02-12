@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Mirzipan.Extensions.Unity.Math
 {
@@ -46,6 +47,16 @@ namespace Mirzipan.Extensions.Unity.Math
             return @this;
         }
 
+        public static Vector2 ClampX(this Vector2 @this, float min, float max)
+        {
+            return @this.WithX(Mathf.Clamp(@this.x, min, max));
+        }
+
+        public static Vector2 ClampY(this Vector2 @this, float min, float max)
+        {
+            return @this.WithY(Mathf.Clamp(@this.y, min, max));
+        }
+
         #endregion Clamp
 
         #region Rotation
@@ -58,7 +69,13 @@ namespace Mirzipan.Extensions.Unity.Math
 
         #region Equality
 
+        [Obsolete("Use Approximately")]
         public static bool LossyEquals(this Vector2 @this, Vector2 other, float tolerance = float.Epsilon)
+        {
+            return Approximately(@this, other, tolerance);
+        }
+
+        public static bool Approximately(this Vector2 @this, Vector2 other, float tolerance = float.Epsilon)
         {
             var delta = @this - other;
             return delta.sqrMagnitude <= tolerance * tolerance;

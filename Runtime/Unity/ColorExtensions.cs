@@ -6,26 +6,14 @@ namespace Mirzipan.Extensions.Unity
     {
         #region Get/Set
 
-        public static Color WithR(this Color @this, float red)
-        {
-            return new Color(red, @this.g, @this.b, @this.a);
-        }
+        public static Color WithR(this Color @this, float red) => new Color(red, @this.g, @this.b, @this.a);
 
-        public static Color WithG(this Color @this, float green)
-        {
-            return new Color(@this.r, green, @this.b, @this.a);
-        }
+        public static Color WithG(this Color @this, float green) => new Color(@this.r, green, @this.b, @this.a);
 
-        public static Color WithB(this Color @this, float blue)
-        {
-            return new Color(@this.r, @this.g, blue, @this.a);
-        }
-        
-        public static Color WithAlpha(this Color @this, float alpha)
-        {
-            return new Color(@this.r, @this.g, @this.b, alpha);
-        }
-        
+        public static Color WithB(this Color @this, float blue) => new Color(@this.r, @this.g, blue, @this.a);
+
+        public static Color WithAlpha(this Color @this, float alpha) => new Color(@this.r, @this.g, @this.b, alpha);
+
         public static Color WithAlphaMultiplied(this Color @this, float multiplier)
         {
             return new Color(@this.r, @this.g, @this.b, @this.a * multiplier);
@@ -79,11 +67,8 @@ namespace Mirzipan.Extensions.Unity
             return new Color(1f - @this.r, 1f - @this.g, 1f - @this.b, @this.a);
         }
 
-        public static Color Opaque(this Color @this)
-        {
-            return new Color(@this.r, @this.g, @this.b, 1f);
-        }
-        
+        public static Color Opaque(this Color @this) => new Color(@this.r, @this.g, @this.b, 1f);
+
         public static Color Darken(this Color @this, float amount)
         {
             return new Color(@this.r - amount, @this.g - amount, @this.b - amount, @this.a);

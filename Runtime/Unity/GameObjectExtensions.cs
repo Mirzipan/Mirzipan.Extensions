@@ -17,6 +17,8 @@ namespace Mirzipan.Extensions.Unity
             return @this.GetComponent(type) ?? @this.AddComponent(type);
         }
 
+        public static bool HasComponent<T>(this GameObject @this) => @this.GetComponent<T>() != null;
+
         #endregion Components
 
         #region Hierarchy
@@ -47,15 +49,9 @@ namespace Mirzipan.Extensions.Unity
             return current.gameObject;
         }
 
-        public static string Path(this GameObject @this)
-        {
-            return @this.transform.Path();
-        }
+        public static string Path(this GameObject @this) => @this.transform.Path();
 
-        public static bool IsPrefab(this GameObject @this)
-        {
-            return @this.scene.name.IsNullOrEmpty();
-        }
+        public static bool IsPrefab(this GameObject @this) => @this.scene.name.IsNullOrEmpty();
 
         #endregion Hierarchy
     }

@@ -24,5 +24,7 @@ namespace Mirzipan.Extensions.Unity
         {
             return @this.GetComponent(type) ?? @this.gameObject.AddComponent(type);
         }
+
+        public static bool HasComponent<T>(this Component @this) => @this.GetComponent<T>() != null;
     }
 }

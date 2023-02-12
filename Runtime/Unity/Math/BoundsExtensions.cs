@@ -29,15 +29,9 @@ namespace Mirzipan.Extensions.Unity.Math
             @this.SetMinMax(min, max);
         }
         
-        public static Bounds MoveTo(this ref Bounds @this, Vector3 center)
-        {
-            return new Bounds(center, @this.size);
-        }
-        
-        public static Bounds Resize(this ref Bounds @this, Vector3 size)
-        {
-            return new Bounds(@this.center, size);
-        }
+        public static Bounds MoveTo(this ref Bounds @this, Vector3 center) => new Bounds(center, @this.size);
+
+        public static Bounds Resize(this ref Bounds @this, Vector3 size) => new Bounds(@this.center, size);
 
         public static Vector3 RandomPositionInside(this Bounds @this)
         {

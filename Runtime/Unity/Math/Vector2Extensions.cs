@@ -73,5 +73,15 @@ namespace Mirzipan.Extensions.Unity.Math
         }
 
         #endregion Rotation
+
+        #region Equality
+
+        public static bool LossyEquals(this Vector2 @this, Vector2 other, float tolerance = float.Epsilon)
+        {
+            var delta = @this - other;
+            return delta.sqrMagnitude <= tolerance * tolerance;
+        }
+
+        #endregion Equality
     }
 }

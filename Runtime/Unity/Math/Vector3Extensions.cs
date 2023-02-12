@@ -67,5 +67,15 @@ namespace Mirzipan.Extensions.Unity.Math
         }
 
         #endregion Clamp
+
+        #region Equality
+
+        public static bool LossyEquals(this Vector3 @this, Vector3 other, float tolerance = float.Epsilon)
+        {
+            var delta = @this - other;
+            return delta.sqrMagnitude <= tolerance * tolerance;
+        }
+
+        #endregion Equality
     }
 }

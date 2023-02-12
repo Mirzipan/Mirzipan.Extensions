@@ -14,6 +14,11 @@ namespace Mirzipan.Extensions.Collections
             return @this ?? Array.Empty<T>();
         }
 
+        public static int IndexOf<T>(this T[] @this, T value)
+        {
+            return Array.IndexOf(@this, value);
+        }
+        
         public static bool IsIndexInRange<T>(this T[] @this, int index)
         {
             return index > 0 && index < @this.Length;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Mirzipan.Extensions.Unity.UI
+namespace Mirzipan.Extensions.Unity
 {
     public static class RichTextExtensions
     {

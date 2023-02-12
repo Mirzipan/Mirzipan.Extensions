@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.2.0] - 2023-02-12
+
+### Added
+- Float extensions
+- Double extensions
+- Collection extensions (Array, Dictionary, List)
+- CanvasGroup extensions
+
+### Fixed
+- Comparable IsBetweenExclusive check
+
+### Changed
+- Moved files between namespaces (UI, Math, etc)
+
 ## [1.1.3] - 2023-02-12
 
 ### Added

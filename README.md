@@ -6,6 +6,8 @@ Collection of extension and utility methods I can created or collected over the 
 
 ### Basic Types
 - Boolean
+- Double
+- Float
 - Integer
 - Object
 - String
@@ -44,3 +46,4 @@ Collection of extension and utility methods I can created or collected over the 
 - Button
 - Slider
 - Toggle
+- CanvasGroup

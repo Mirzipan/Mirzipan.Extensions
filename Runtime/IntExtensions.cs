@@ -1,9 +1,12 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Mirzipan.Extensions
 {
     public static class IntExtensions
     {        
+        public static int Clamp(this int @this, int min, int max) => Mathf.Clamp(@this, min, max);
+        
         #region TimeSpan
 
         public static TimeSpan Days(this int @this)

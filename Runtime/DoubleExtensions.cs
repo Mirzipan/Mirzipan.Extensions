@@ -23,5 +23,21 @@ namespace Mirzipan.Extensions
             double absTolerance = tolerance > 0d ? tolerance : -tolerance;
             return absDiff <= absTolerance;
         }
+
+        public static double Clamp01(this double @this) => Clamp(@this, 0d, 1d);
+        
+        public static double Clamp(this double @this, double min, double max)
+        {
+            if (@this < min)
+            {
+                @this = min;
+            }
+            else if (@this > max)
+            {
+                @this = max;
+            }
+
+            return @this;
+        }
     }
 }

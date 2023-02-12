@@ -1,7 +1,7 @@
 ﻿using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace Mirzipan.Extensions
+namespace Mirzipan.Extensions.Unity.UI
 {
     public static class ToggleExtensions
     {

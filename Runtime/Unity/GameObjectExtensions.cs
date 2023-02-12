@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Mirzipan.Extensions
+namespace Mirzipan.Extensions.Unity
 {
     public static class GameObjectExtensions
     {

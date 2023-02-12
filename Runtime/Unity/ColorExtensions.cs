@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Mirzipan.Extensions
+namespace Mirzipan.Extensions.Unity
 {
     public static class ColorExtensions
     {

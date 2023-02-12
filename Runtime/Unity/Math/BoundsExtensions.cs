@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Mirzipan.Extensions
+namespace Mirzipan.Extensions.Unity.Math
 {
     public static class BoundsExtensions
     {

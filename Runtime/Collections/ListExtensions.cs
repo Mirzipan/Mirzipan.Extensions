@@ -84,5 +84,18 @@ namespace Mirzipan.Extensions.Collections
             (@this[index1], @this[index2]) = (@this[index2], @this[index1]);
             return @this;
         }
+
+        public static IList<T> Swap<T>(this IList<T> @this, T item1, T item2)
+        {
+            int index1 = @this.IndexOf(item1);
+            int index2 = @this.IndexOf(item2);
+
+            if (index1 < 0 || index2 < 0)
+            {
+                return @this;
+            }
+
+            return Swap(@this, index1, index2);
+        }
     }
 }

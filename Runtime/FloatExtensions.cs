@@ -29,8 +29,16 @@ namespace Mirzipan.Extensions
 
         public static float Clamp01(this float @this) => Mathf.Clamp01(@this);
 
-        public static float Round(this float @this) => Mathf.Round(@this);
+        public static float Round(this float @this) =>  (float) Math.Round(@this);
 
-        public static int RoundToInt(this float @this) => Mathf.RoundToInt(@this);
+        public static int RoundToInt(this float @this) => (int) Math.Round(@this);
+
+        public static float Ceil(this float @this) => (float) Math.Ceiling(@this);
+        
+        public static int CeilToInt(this float @this) => (int) Math.Ceiling(@this);
+
+        public static float Floor(this float @this) => (float) Math.Floor(@this);
+        
+        public static int FloorToInt(this float @this) => (int) Math.Floor(@this);
     }
 }

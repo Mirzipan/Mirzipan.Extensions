@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Mirzipan.Extensions
 {
@@ -39,5 +40,17 @@ namespace Mirzipan.Extensions
 
             return @this;
         }
+
+        public static double Round(this double @this) => Math.Round(@this);
+
+        public static int RoundToInt(this double @this) => (int) Math.Round(@this);
+
+        public static double Ceil(this double @this) => Math.Ceiling(@this);
+        
+        public static int CeilToInt(this double @this) => (int) Math.Ceiling(@this);
+
+        public static double Floor(this double @this) => Math.Floor(@this);
+        
+        public static int FloorToInt(this double @this) => (int) Math.Floor(@this);
     }
 }

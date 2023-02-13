@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.2.1] - 2023-02-13
+
+### Added
+- Float extensions
+- Double extensions
+- Int extensions
+- String extensions
+- Object extensions
+- Collection extensions (Array, Dictionary, List, IEnumerable)
+- Unity types extensions (Color, Vector2, Vector2Int, Vector3, Vector3Int, Vector4, Bounds, BoundsInt, Rect, RectInt)
+
 ## [1.2.0] - 2023-02-12
 
 ### Added

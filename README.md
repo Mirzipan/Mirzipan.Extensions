@@ -29,7 +29,10 @@ Collection of extension and utility methods I can created or collected over the 
 - String (RichText tags for use with TextMeshPro)
 
 ### Unity Types
+- Bounds
+- BoundsInt
 - Color
+- Rect
 - RectInt
 - Vector2
 - Vector2Int
@@ -39,11 +42,14 @@ Collection of extension and utility methods I can created or collected over the 
 
 ### Basic Components
 - GameObject
+- Animator
+- Behaviour
 - Component
+- RectTransform
 - Transform
 
 ### UI
 - Button
+- CanvasGroup
 - Slider
 - Toggle
-- CanvasGroup

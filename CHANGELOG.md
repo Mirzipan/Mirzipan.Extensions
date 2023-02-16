@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.2] - 2023-02-16
+
+### Added
+- Documentation for Boolean, Comparable, DateTime, Double, Float, Integer, Long, Object, and String extensions
+- Collection extensions (Array, Collection)
+- Unity types extensions (Vector2, Vector2Int, Vector3, Vector3Int, Bounds, BoundsInt, Rect, RectInt)
+
+### Fixed
+- Incorrect Deconstruct for BoundsInt
+
 ## [1.2.1] - 2023-02-13
 
 ### Added

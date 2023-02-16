@@ -5,30 +5,62 @@ namespace Mirzipan.Extensions
 {
     public static class IntExtensions
     {        
+        /// <summary>
+        /// Clamps this between min and max values.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="min">Lower bound</param>
+        /// <param name="max">Upped bound</param>
+        /// <returns></returns>
         public static int Clamp(this int @this, int min, int max) => Mathf.Clamp(@this, min, max);
         
         #region TimeSpan
 
+        /// <summary>
+        /// Creates a <see cref="TimeSpan"/> with days equal to this.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static TimeSpan Days(this int @this)
         {
             return TimeSpan.FromDays(@this);
         }
 
+        /// <summary>
+        /// Creates a <see cref="TimeSpan"/> with hours equal to this.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static TimeSpan Hours(this int @this)
         {
             return TimeSpan.FromHours(@this);
         }
 
+        /// <summary>
+        /// Creates a <see cref="TimeSpan"/> with minutes equal to this.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static TimeSpan Minutes(this int @this)
         {
             return TimeSpan.FromMinutes(@this);
         }
 
+        /// <summary>
+        /// Creates a <see cref="TimeSpan"/> with seconds equal to this.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static TimeSpan Seconds(this int @this)
         {
             return TimeSpan.FromSeconds(@this);
         }
 
+        /// <summary>
+        /// Creates a <see cref="TimeSpan"/> with milliseconds equal to this.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static TimeSpan Milliseconds(this int @this)
         {
             return TimeSpan.FromMilliseconds(@this);

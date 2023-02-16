@@ -28,13 +28,15 @@ namespace Mirzipan.Extensions.Unity.Math
             @this.min = min;
             @this.max = max;
         }
-        
+
+        #region Containment
+
         public static void Encapsulate(this ref Rect @this, Vector2 point)
         {
             @this.min = Vector2.Min(@this.min, point);
             @this.max = Vector2.Max(@this.max, point);
         }
-        
+
         public static void Encapsulate(this ref Rect @this, IEnumerable<Vector2> points)
         {
             Vector2 min = @this.min;
@@ -49,7 +51,7 @@ namespace Mirzipan.Extensions.Unity.Math
             @this.min = min;
             @this.max = max;
         }
-        
+
         public static void Encapsulate(this ref Rect @this, Rect rect)
         {
             @this.min = Vector2.Min(@this.min, rect.min);
@@ -67,5 +69,30 @@ namespace Mirzipan.Extensions.Unity.Math
 
             return result;
         }
+
+        public static bool Intersect(this Rect @this, Rect other, out Rect intersection)
+        {
+            intersection = new Rect();
+            
+            if (@this.xMax <= other.xMin || @this.yMax <= other.yMin)
+            {
+                return false;
+            }
+            
+            if (@this.xMin >= other.xMax || @this.yMin >= other.yMax)
+            {
+                return false;
+            }
+
+            float xMin = Mathf.Max(@this.xMin, other.xMin);
+            float yMin = Mathf.Max(@this.yMin, other.yMin);
+            float xMax = Mathf.Max(@this.xMax, other.xMax);
+            float yMax = Mathf.Max(@this.yMax, other.yMax);
+            
+            intersection.SetMinMax(new Vector2(xMin, yMin), new Vector2(xMax, yMax));
+            return true;
+        }
+
+        #endregion Containment
     }
 }

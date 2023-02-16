@@ -14,7 +14,17 @@ namespace Mirzipan.Extensions.Unity.Math
         }
 
         #endregion Deconstruction
-        
+
+        #region Manipulation
+
+        public static Bounds MoveTo(this ref Bounds @this, Vector3 center) => new Bounds(center, @this.size);
+
+        public static Bounds Resize(this ref Bounds @this, Vector3 size) => new Bounds(@this.center, size);
+
+        #endregion Manipulation
+
+        #region Containment
+
         public static void Encapsulate(this ref Bounds @this, IEnumerable<Vector3> points)
         {
             Vector3 min = @this.min;
@@ -28,10 +38,6 @@ namespace Mirzipan.Extensions.Unity.Math
             
             @this.SetMinMax(min, max);
         }
-        
-        public static Bounds MoveTo(this ref Bounds @this, Vector3 center) => new Bounds(center, @this.size);
-
-        public static Bounds Resize(this ref Bounds @this, Vector3 size) => new Bounds(@this.center, size);
 
         public static Vector3 RandomPositionInside(this Bounds @this)
         {
@@ -45,5 +51,27 @@ namespace Mirzipan.Extensions.Unity.Math
 
             return result;
         }
+        
+        public static bool Intersect(this Bounds @this, Bounds other, out Bounds intersection)
+        {
+            intersection = new Bounds();
+            
+            if (@this.max.x <= other.min.x || @this.max.y <= other.min.y || @this.max.z <= other.min.z)
+            {
+                return false;
+            }
+            
+            if (@this.min.x >= other.max.x || @this.min.y >= other.max.y || @this.min.z >= other.max.z)
+            {
+                return false;
+            }
+
+            Vector3 min = Vector3.Min(@this.min, other.min);
+            Vector3 max = Vector3.Min(@this.max, other.max);
+            intersection.SetMinMax(min, max);
+            return true;
+        }
+
+        #endregion Containment
     }
 }

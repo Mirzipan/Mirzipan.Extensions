@@ -47,5 +47,11 @@ namespace Mirzipan.Extensions.Unity.Math
         }
 
         #endregion Clamp
+
+        #region Containment
+
+        public static bool IsInside(this Vector2Int @this, RectInt rect) => rect.Contains(@this);
+
+        #endregion Containment
     }
 }

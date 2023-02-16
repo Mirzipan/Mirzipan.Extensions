@@ -10,6 +10,8 @@ namespace Mirzipan.Extensions.Collections
 
         public static T[] EmptyIfNull<T>(this T[] @this) => @this ?? Array.Empty<T>();
 
+        public static T[] NullIfEmpty<T>(this T[] @this) => @this == null || @this.Length == 0 ? null : @this;
+
         public static int IndexOf<T>(this T[] @this, T value) => Array.IndexOf(@this, value);
 
         public static bool IsIndexInRange<T>(this T[] @this, int index)

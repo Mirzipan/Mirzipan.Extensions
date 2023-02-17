@@ -24,12 +24,6 @@ namespace Mirzipan.Extensions
             return @this >= min && @this <= max;
         }
         
-        [Obsolete("Use Approximately")]
-        public static bool LossyEquals(this float @this, float other, float tolerance = float.Epsilon)
-        {
-            return Approximately(@this, other, tolerance);
-        }
-        
         /// <summary>
         /// Returns true if this and the other value are equal enough.
         /// </summary>

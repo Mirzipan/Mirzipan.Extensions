@@ -4,9 +4,17 @@ namespace Mirzipan.Extensions
 {
     public static class DateTimeExtensions
     {
-        [Obsolete("Use IsBetweenInclusive instead")]
-        public static bool IsBetween(this DateTime @this, DateTime from, DateTime to) =>
-            IsBetweenInclusive(@this, from, to);
+        /// <summary>
+        /// Returns true if this is between the dates supplied.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="from">Lower bound (inclusive)</param>
+        /// <param name="to">Upped bound (exclusive)</param>
+        /// <returns></returns>
+        public static bool IsBetween(this DateTime @this, DateTime from, DateTime to)
+        {
+            return @this >= from && @this < to;
+        }
         
         /// <summary>
         /// Returns true if this is between the dates supplied.

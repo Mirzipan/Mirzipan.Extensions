@@ -156,9 +156,6 @@ namespace Mirzipan.Extensions.Collections
             }
         }
 
-        [Obsolete("Use ForEach instead.")]
-        public static IEnumerable<T> Return<T>(this IEnumerable<T> @this, Action<T> action) => ForEach(@this, action);
-
         #endregion Linq
     }
 }

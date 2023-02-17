@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Mirzipan.Extensions.Unity.Math
 {
@@ -83,12 +82,6 @@ namespace Mirzipan.Extensions.Unity.Math
         #endregion Clamp
 
         #region Equality
-
-        [Obsolete("Use Approximately")]
-        public static bool LossyEquals(this Vector4 @this, Vector4 other, float tolerance = float.Epsilon)
-        {
-            return Approximately(@this, other, tolerance);
-        }
 
         public static bool Approximately(this Vector4 @this, Vector4 other, float tolerance = float.Epsilon)
         {

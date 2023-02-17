@@ -156,6 +156,46 @@ namespace Mirzipan.Extensions.Collections
             }
         }
 
+        /// <summary>
+        /// Returns every other element of the sequence, starting with the first even element.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static IEnumerable<T> Even<T>(this IEnumerable<T> @this)
+        {
+            int index = 0;
+            foreach (var entry in @this)
+            {
+                if (index % 2 == 0)
+                {
+                    yield return entry;
+                }
+
+                index++;
+            }
+        }
+
+        /// <summary>
+        /// Returns every other element of the sequence, starting with the first odd element.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static IEnumerable<T> Odd<T>(this IEnumerable<T> @this)
+        {
+            int index = 0;
+            foreach (var entry in @this)
+            {
+                if (index % 2 != 0)
+                {
+                    yield return entry;
+                }
+
+                index++;
+            }
+        }
+
         #endregion Linq
     }
 }

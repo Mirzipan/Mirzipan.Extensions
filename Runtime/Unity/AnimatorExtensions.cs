@@ -4,6 +4,10 @@ namespace Mirzipan.Extensions.Unity
 {
     public static class AnimatorExtensions
     {
+        /// <summary>
+        /// Resets all parameters of this animator.
+        /// </summary>
+        /// <param name="this"></param>
         public static void ResetParameters(this Animator @this)
         {
             int count = @this.parameters.Length;
@@ -28,6 +32,11 @@ namespace Mirzipan.Extensions.Unity
             }
         }
 
+        /// <summary>
+        /// Returns true if this animator has a parameter with the specified name.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="name">Name of the parameter to check for</param>
         public static bool HasParameter(this Animator @this, string name)
         {
             int count = @this.parameters.Length;
@@ -43,6 +52,12 @@ namespace Mirzipan.Extensions.Unity
             return false;
         }
 
+        /// <summary>
+        /// Returns true if this animator has a parameter with the specified name and type.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="name">Name of the parameter to check for</param>
+        /// <param name="type">Type of the parameter to check for</param>
         public static bool HasParameter(this Animator @this, string name, AnimatorControllerParameterType type)
         {
             int count = @this.parameters.Length;

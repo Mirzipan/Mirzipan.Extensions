@@ -28,57 +28,105 @@ namespace Mirzipan.Extensions.Unity
 
         #region Equality
 
-        public static bool IsOpaque(this Color @this, float tolerance = float.Epsilon)
-        {
-            return @this.a >= 1 - tolerance;
-        }
+        /// <summary>
+        /// Returns true if this <see cref="Color"/>'s alpha is 1 or within the tolerance of 1.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="tolerance"></param>
+        /// <returns></returns>
+        public static bool IsOpaque(this Color @this, float tolerance = float.Epsilon) => @this.a >= 1 - tolerance;
 
+        /// <summary>
+        /// Returns true if all components except for alpha are 1 or within the tolerance of 1.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="tolerance"></param>
+        /// <returns></returns>
         public static bool IsWhite(this Color @this, float tolerance = float.Epsilon)
         {
-            return @this.r + @this.g + @this.b >= 1 - tolerance;
+            return @this.r + @this.g + @this.b >= 3 - tolerance;
         }
 
+        /// <summary>
+        /// Returns true if all components except for alpha are 0 or within the tolerance of 0.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="tolerance"></param>
+        /// <returns></returns>
         public static bool IsBlack(this Color @this, float tolerance = float.Epsilon)
         {
             return @this.r + @this.g + @this.b <= tolerance;
         }
 
-        public static bool IsReddish(this Color @this)
-        {
-            return @this.r > @this.g && @this.r > @this.b;
-        }
+        /// <summary>
+        /// Returns true if the greatest component of this <see cref="Color"/> is red.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool IsReddish(this Color @this) => @this.r > @this.g && @this.r > @this.b;
 
-        public static bool IsGreenish(this Color @this)
-        {
-            return @this.g > @this.r && @this.g > @this.b;
-        }
+        /// <summary>
+        /// Returns true if the greatest component of this <see cref="Color"/> is green.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool IsGreenish(this Color @this) => @this.g > @this.r && @this.g > @this.b;
 
-        public static bool IsBlueish(this Color @this)
-        {
-            return @this.b > @this.r && @this.b > @this.g;
-        }
+        /// <summary>
+        /// Returns true if the greatest component of this <see cref="Color"/> is blue.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool IsBlueish(this Color @this) => @this.b > @this.r && @this.b > @this.g;
 
         #endregion Equality
 
         #region Misc
 
+        /// <summary>
+        /// Returns the inverted value of this <see cref="Color"/>.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static Color Invert(this Color @this)
         {
             return new Color(1f - @this.r, 1f - @this.g, 1f - @this.b, @this.a);
         }
 
+        /// <summary>
+        /// Returns an opaque version of this <see cref="Color"/>.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static Color Opaque(this Color @this) => new Color(@this.r, @this.g, @this.b, 1f);
 
+        /// <summary>
+        /// Returns this <see cref="Color"/> darkened.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="amount">Amount between 0 and 1 by which this color should be darkened</param>
+        /// <returns></returns>
         public static Color Darken(this Color @this, float amount)
         {
             return new Color(@this.r - amount, @this.g - amount, @this.b - amount, @this.a);
         }
 
+        /// <summary>
+        /// Returns this <see cref="Color"/> lightened.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="amount">Amount between 0 and 1 by which this color should be lightened</param>
+        /// <returns></returns>
         public static Color Lighten(this Color @this, float amount)
         {
             return new Color(@this.r + amount, @this.g + amount, @this.b + amount, @this.a);
         }
 
+        /// <summary>
+        /// Returns a random <see cref="Color"/> that is darker than this.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static Color RandomDarker(this Color @this)
         {
             float r = Random.Range(0f, @this.r);
@@ -87,6 +135,11 @@ namespace Mirzipan.Extensions.Unity
             return new Color(r, g, b);
         }
 
+        /// <summary>
+        /// Returns a random <see cref="Color"/> that is lighter than this.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static Color RandomLighter(this Color @this)
         {
             float r = Random.Range(@this.r, 1f);
@@ -95,6 +148,13 @@ namespace Mirzipan.Extensions.Unity
             return new Color(r, g, b);
         }
 
+        /// <summary>
+        /// Linearly interpolates between two <see cref="Color"/>s using HSV space instead of the default RGB.
+        /// </summary>
+        /// <param name="a">Start color, returned when t = 0.</param>
+        /// <param name="b">End color, returned when t = 1.</param>
+        /// <param name="t">Value used to interpolate between a and b.</param>
+        /// <returns></returns>
         public static Color LerpHSV(Color a, Color b, float t)
         {
             Color.RGBToHSV(a, out var aH, out var aS, out var aV);
@@ -107,6 +167,13 @@ namespace Mirzipan.Extensions.Unity
 
         #region Clamp
 
+        /// <summary>
+        /// Clamps red, green, and blue components of this <see cref="Color"/> between min and max.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="min">Minimal value for each component (between 0 and 1)</param>
+        /// <param name="max">Maximal value for each component (between 0 and 1)</param>
+        /// <returns></returns>
         public static Color ClampRGB(this Color @this, float min, float max)
         {
             @this.r = Mathf.Clamp(@this.r, min, max);
@@ -115,6 +182,13 @@ namespace Mirzipan.Extensions.Unity
             return @this;
         }
 
+        /// <summary>
+        /// Clamps all components of this <see cref="Color"/> between min and max.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="min">Minimal value for each component (between 0 and 1)</param>
+        /// <param name="max">Maximal value for each component (between 0 and 1)</param>
+        /// <returns></returns>
         public static Color Clamp(this Color @this, float min, float max)
         {
             @this.r = Mathf.Clamp(@this.r, min, max);
@@ -124,6 +198,13 @@ namespace Mirzipan.Extensions.Unity
             return @this;
         }
 
+        /// <summary>
+        /// Clamps all components of this <see cref="Color"/> between min color and max color.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="min">Minimal color per each component</param>
+        /// <param name="max">Maximal color per each component</param>
+        /// <returns></returns>
         public static Color Clamp(this Color @this, Color min, Color max)
         {
             @this.r = Mathf.Max(min.r, @this.r);

@@ -111,7 +111,13 @@ namespace Mirzipan.Extensions.Unity
 
         #region Children
 
-        public static List<T> GetChildren<T>(this Transform @this) where T : Component
+        /// <summary>
+        /// Returns all children of the specified type.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <typeparam name="T">Type of component to return</typeparam>
+        /// <returns></returns>
+        public static IList<T> GetChildren<T>(this Transform @this) where T : Component
         {
             var result = new List<T>();
             for (int i = 0; i < @this.childCount; i++)
@@ -126,6 +132,12 @@ namespace Mirzipan.Extensions.Unity
             return result;
         }
 
+        /// <summary>
+        /// Destroys all child <see cref="GameObject"/>s that have a <see cref="Component"/> of the specified type.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <typeparam name="T">Type of component to destroy</typeparam>
+        /// <returns></returns>
         public static void DestroyChildren<T>(this Transform @this) where T : Component
         {
             for (int i = 0; i < @this.childCount; i++)
@@ -150,6 +162,11 @@ namespace Mirzipan.Extensions.Unity
             }
         }
 
+        /// <summary>
+        /// Destroys all child <see cref="GameObject"/>s of this <see cref="Transform"/>.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static void DestroyChildren(this Transform @this)
         {
             for (int i = 0; i < @this.childCount; i++)
@@ -174,6 +191,11 @@ namespace Mirzipan.Extensions.Unity
 
         #region Hierarchy
 
+        /// <summary>
+        /// Returns the root of the hierarchy tree this <see cref="Transform"/> is a part of.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static Transform Root(this Transform @this)
         {
             if (!@this.parent)
@@ -190,6 +212,11 @@ namespace Mirzipan.Extensions.Unity
             return current;
         }
 
+        /// <summary>
+        /// Returns the path of this <see cref="Transform"/> in the hierarchy.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static string Path(this Transform @this)
         {
             if (!@this.parent)

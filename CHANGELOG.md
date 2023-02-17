@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.2.3] - 2023-02-17
+
+### Added
+- Documentation for Collection, Dictionary, Enumerable, HashSet, and List extensions
+- Documentation for Animator, Behaviour, Color, Component, GameObject, RectTransform, RichText, and Transform extensions
+- Documentation for Button, CanvasGroup, Slider, and Toggle extensions
+- Setters for sprites and colors for Button
+- Setters for min and max values for Slider
+
+### Fixed
+- Incorrect check for index in Array and List IsIndexInRange()
+- ForEach extensions (all variants) for IEnumerable not having deferred execution
+- ForEach extensions (function variants) for IEnumerable not returning the correct type
+
 ## [1.2.2] - 2023-02-16
 
 ### Added

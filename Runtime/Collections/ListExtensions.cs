@@ -5,15 +5,48 @@ namespace Mirzipan.Extensions.Collections
 {
     public static class ListExtensions
     {
+        /// <summary>
+        /// Returns true if this <see cref="IList{T}"/> is null or empty.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static bool IsNullOrEmpty<T>(this IList<T> @this) => @this == null || @this.Count == 0;
         
+        /// <summary>
+        /// Returns true if this <see cref="IList{T}"/> is not null or empty.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static bool NotNullOrEmpty<T>(this IList<T> @this) => !@this.IsNullOrEmpty();
         
-        public static bool IsIndexInRange<T>(this IList<T> @this, int index)
-        {
-            return index > 0 && index < @this.Count;
-        }
+        /// <summary>
+        /// Returns true if index is valid for this <see cref="IList{T}"/>.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="index"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static bool IsOutOfBounds<T>(this IList<T> @this, int index) => index < 0 || index >= @this.Count;
+        
+        /// <summary>
+        /// Returns true if index is valid for this <see cref="IList{T}"/>.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="index"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static bool IsIndexInRange<T>(this IList<T> @this, int index) => index >= 0 && index < @this.Count;
 
+        /// <summary>
+        /// Returns true if a value exists at the specified index.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="index"></param>
+        /// <param name="value">Value at the specified index, default value if index is out of bounds</param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static bool TryGetValue<T>(this IList<T> @this, int index, out T value)
         {
             if (!@this.IsIndexInRange(index))
@@ -69,6 +102,13 @@ namespace Mirzipan.Extensions.Collections
             @this.RemoveAt(lastIndex);
         }
 
+        /// <summary>
+        /// Fill this <see cref="IList{T}"/> with values returned by the valueFactory function.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="valueFactory">Function for getting a value for the specified index</param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static IList<T> FillBy<T>(this IList<T> @this, Func<int, T> valueFactory)
         {
             for (int i = 0; i < @this.Count; i++)
@@ -79,18 +119,54 @@ namespace Mirzipan.Extensions.Collections
             return @this;
         }
 
+        /// <summary>
+        /// Swaps elements at the specified indices.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="index1"></param>
+        /// <param name="index2"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static IList<T> Swap<T>(this IList<T> @this, int index1, int index2)
         {
             (@this[index1], @this[index2]) = (@this[index2], @this[index1]);
             return @this;
         }
 
+        /// <summary>
+        /// Swaps elements at the specified indices.
+        /// No swapping occurs if indices are out of bounds.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="index1"></param>
+        /// <param name="index2"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static IList<T> SafeSwap<T>(this IList<T> @this, int index1, int index2)
+        {
+            if (@this.IsOutOfBounds(index1) || @this.IsOutOfBounds(index2))
+            {
+                return @this;
+            }
+            
+            (@this[index1], @this[index2]) = (@this[index2], @this[index1]);
+            return @this;
+        }
+
+        /// <summary>
+        /// Swaps specified elements if both of them exist in this <see cref="IList{T}"/>.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="item1"></param>
+        /// <param name="item2"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static IList<T> Swap<T>(this IList<T> @this, T item1, T item2)
         {
             int index1 = @this.IndexOf(item1);
             int index2 = @this.IndexOf(item2);
 
-            if (index1 < 0 || index2 < 0)
+            if (@this.IsOutOfBounds(index1) || @this.IsOutOfBounds(index2))
             {
                 return @this;
             }

@@ -8,12 +8,37 @@ namespace Mirzipan.Extensions.Collections
     {
         #region Value Checking
 
+        /// <summary>
+        /// Returns true if this <see cref="IEnumerable{T}"/> is null or empty.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static bool IsNullOrEmpty<T>(this IEnumerable<T> @this) => @this == null || !@this.Any();
         
+        /// <summary>
+        /// Returns true if this <see cref="IEnumerable{T}"/> is not null or empty.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static bool NotNullOrEmpty<T>(this IEnumerable<T> @this) => !@this.IsNullOrEmpty();
 
+        /// <summary>
+        /// Returns an empty <see cref="IEnumerable{T}"/> if this is null or empty.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static IEnumerable<T> EmptyIfNull<T>(this IEnumerable<T> @this) => @this ?? Enumerable.Empty<T>();
 
+        /// <summary>
+        /// Returns the current value of <see cref="IEnumerable{T}"/> if not null or empty, otherwise returns default.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="default"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static IEnumerable<T> ValueOrDefault<T>(this IEnumerable<T> @this, IEnumerable<T> @default)
         {
             // ReSharper disable PossibleMultipleEnumeration

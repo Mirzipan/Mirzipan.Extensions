@@ -8,6 +8,7 @@ namespace Mirzipan.Extensions.Collections
         /// Returns true if this <see cref="Array"/> is null or empty.
         /// </summary>
         /// <param name="this"></param>
+        /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static bool IsNullOrEmpty<T>(this T[] @this) => @this == null || @this.Length == 0;
         
@@ -15,6 +16,7 @@ namespace Mirzipan.Extensions.Collections
         /// Returns true if this <see cref="Array"/> is not null or empty.
         /// </summary>
         /// <param name="this"></param>
+        /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static bool NotNullOrEmpty<T>(this T[] @this) => !@this.IsNullOrEmpty();
 
@@ -22,6 +24,7 @@ namespace Mirzipan.Extensions.Collections
         /// Returns an empty <see cref="Array"/> if this is null or empty.
         /// </summary>
         /// <param name="this"></param>
+        /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static T[] EmptyIfNull<T>(this T[] @this) => @this ?? Array.Empty<T>();
 
@@ -29,11 +32,12 @@ namespace Mirzipan.Extensions.Collections
         /// Returns null if this <see cref="Array"/> is null or empty.
         /// </summary>
         /// <param name="this"></param>
+        /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static T[] NullIfEmpty<T>(this T[] @this) => @this == null || @this.Length == 0 ? null : @this;
 
         /// <summary>
-        /// Returns the first index of the specified value.
+        /// Gets the first index of the specified value.
         /// </summary>
         /// <param name="this"></param>
         /// <param name="value">Value to look for</param>
@@ -42,7 +46,7 @@ namespace Mirzipan.Extensions.Collections
         public static int IndexOf<T>(this T[] @this, T value) => Array.IndexOf(@this, value);
 
         /// <summary>
-        /// Returns the first index of the specified value.
+        /// Gets the first index of the specified value.
         /// </summary>
         /// <param name="this"></param>
         /// <param name="value">Value to look for</param>
@@ -52,7 +56,7 @@ namespace Mirzipan.Extensions.Collections
         public static int IndexOf<T>(this T[] @this, T value, int startIndex) => Array.IndexOf(@this, value, startIndex);
 
         /// <summary>
-        /// Returns the first index of the specified value.
+        /// Gets the first index of the specified value.
         /// </summary>
         /// <param name="this"></param>
         /// <param name="value">Value to look for</param>
@@ -78,7 +82,7 @@ namespace Mirzipan.Extensions.Collections
         /// <param name="index"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static bool IsIndexInRange<T>(this T[] @this, int index) => index > 0 && index < @this.Length;
+        public static bool IsIndexInRange<T>(this T[] @this, int index) => index >= 0 && index < @this.Length;
 
         /// <summary>
         /// Returns true if a value exists at the specified index.

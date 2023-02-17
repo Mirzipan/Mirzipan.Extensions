@@ -50,11 +50,26 @@ namespace Mirzipan.Extensions.Collections
 
         #region To Collection
 
+        /// <summary>
+        /// Counts the occurence of each element and creatures a dictionary with elements as keys and counts as values.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <typeparam name="TKey"></typeparam>
+        /// <returns></returns>
         public static IDictionary<TKey, int> ToCountDictionary<TKey>(this IEnumerable<TKey> @this)
         {
             return @this.GroupBy(e => e).ToDictionary(e => e.Key, e => e.Count());
         }
 
+        /// <summary>
+        /// Creates a dictionary based on the groupings.
+        /// Keys used for grouping are used as keys for the dictionary.
+        /// Values are added to each key as a list.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        /// <returns></returns>
         public static IDictionary<TKey, List<TValue>> ToDictionary<TKey, TValue>(
             this IEnumerable<IGrouping<TKey, TValue>> @this)
         {
@@ -65,6 +80,13 @@ namespace Mirzipan.Extensions.Collections
 
         #region Linq
 
+        /// <summary>
+        /// Returns true if no element matches the predicate.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="predicate"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static bool None<T>(this IEnumerable<T> @this, Func<T, bool> predicate) => !@this.Any(predicate);
 
         public static IEnumerable<T> ForEach<T>(this IEnumerable<T> @this, Action<T> action)

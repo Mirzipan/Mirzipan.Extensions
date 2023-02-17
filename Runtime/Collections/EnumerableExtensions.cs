@@ -89,57 +89,75 @@ namespace Mirzipan.Extensions.Collections
         /// <returns></returns>
         public static bool None<T>(this IEnumerable<T> @this, Func<T, bool> predicate) => !@this.Any(predicate);
 
+        /// <summary>
+        /// Applies the specified action to each element.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="action"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static IEnumerable<T> ForEach<T>(this IEnumerable<T> @this, Action<T> action)
         {
             foreach (var entry in @this)
             {
                 action(entry);
+                yield return entry;
             }
-
-            return @this;
-        }
-        
-        public static IEnumerable<TValue> ForEach<TValue, TResult>(this IEnumerable<TValue> @this,
-            Func<TValue, TResult> function)
-        {
-            foreach (var entry in @this)
-            {
-                function(entry);
-            }
-
-            return @this;
         }
 
+        /// <summary>
+        /// Applies the specified action to each element. The action can work with the index of the element.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="action"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static IEnumerable<T> ForEach<T>(this IEnumerable<T> @this, Action<T, int> action)
         {
             int index = 0;
             foreach (var entry in @this)
             {
                 action(entry, index++);
+                yield return entry;
             }
-            
-            return @this;
         }
 
-        public static IEnumerable<TValue> ForEach<TValue, TResult>(this IEnumerable<TValue> @this, Func<TValue, int, TResult> function)
+        /// <summary>
+        /// Transforms each element using the specified function.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="function"></param>
+        /// <typeparam name="TValue">Old element type</typeparam>
+        /// <typeparam name="TResult">New element type</typeparam>
+        /// <returns></returns>
+        public static IEnumerable<TResult> ForEach<TValue, TResult>(this IEnumerable<TValue> @this,
+            Func<TValue, TResult> function)
+        {
+            foreach (var entry in @this)
+            {
+                yield return function(entry);
+            }
+        }
+
+        /// <summary>
+        /// Transforms each element using the specified function. The function can work with the index of the element.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="function"></param>
+        /// <typeparam name="TValue">Old element type</typeparam>
+        /// <typeparam name="TResult">New element type</typeparam>
+        /// <returns></returns>
+        public static IEnumerable<TResult> ForEach<TValue, TResult>(this IEnumerable<TValue> @this, Func<TValue, int, TResult> function)
         {
             int index = 0;
             foreach (var entry in @this)
             {
-                function(entry, index++);
+                yield return function(entry, index++);
             }
-            
-            return @this;
         }
 
-        public static IEnumerable<T> Return<T>(this IEnumerable<T> @this, Action<T> action)
-        {
-            foreach (T entry in @this)
-            {
-                action(entry);
-                yield return entry;
-            }
-        }
+        [Obsolete("Use ForEach instead.")]
+        public static IEnumerable<T> Return<T>(this IEnumerable<T> @this, Action<T> action) => ForEach(@this, action);
 
         #endregion Linq
     }

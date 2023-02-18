@@ -98,7 +98,7 @@ namespace Mirzipan.Extensions.Collections
         /// <returns></returns>
         public static IEnumerable<T> ForEach<T>(this IEnumerable<T> @this, Action<T> action)
         {
-            foreach (var entry in @this)
+            foreach (T entry in @this)
             {
                 action(entry);
                 yield return entry;
@@ -115,7 +115,7 @@ namespace Mirzipan.Extensions.Collections
         public static IEnumerable<T> ForEach<T>(this IEnumerable<T> @this, Action<T, int> action)
         {
             int index = 0;
-            foreach (var entry in @this)
+            foreach (T entry in @this)
             {
                 action(entry, index++);
                 yield return entry;
@@ -133,7 +133,7 @@ namespace Mirzipan.Extensions.Collections
         public static IEnumerable<TResult> ForEach<TValue, TResult>(this IEnumerable<TValue> @this,
             Func<TValue, TResult> function)
         {
-            foreach (var entry in @this)
+            foreach (TValue entry in @this)
             {
                 yield return function(entry);
             }
@@ -150,7 +150,7 @@ namespace Mirzipan.Extensions.Collections
         public static IEnumerable<TResult> ForEach<TValue, TResult>(this IEnumerable<TValue> @this, Func<TValue, int, TResult> function)
         {
             int index = 0;
-            foreach (var entry in @this)
+            foreach (TValue entry in @this)
             {
                 yield return function(entry, index++);
             }
@@ -165,7 +165,7 @@ namespace Mirzipan.Extensions.Collections
         public static IEnumerable<T> Even<T>(this IEnumerable<T> @this)
         {
             int index = 0;
-            foreach (var entry in @this)
+            foreach (T entry in @this)
             {
                 if (index % 2 == 0)
                 {
@@ -185,7 +185,7 @@ namespace Mirzipan.Extensions.Collections
         public static IEnumerable<T> Odd<T>(this IEnumerable<T> @this)
         {
             int index = 0;
-            foreach (var entry in @this)
+            foreach (T entry in @this)
             {
                 if (index % 2 != 0)
                 {
@@ -193,6 +193,27 @@ namespace Mirzipan.Extensions.Collections
                 }
 
                 index++;
+            }
+        }
+
+        /// <summary>
+        /// Returns every n-th element of the sequence, starting with the first n-th element.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="count"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static IEnumerable<T> Every<T>(this IEnumerable<T> @this, int count)
+        {
+            int index = 0;
+            foreach (T entry in @this)
+            {
+                index++;
+                if (index == count)
+                {
+                    index = 0;
+                    yield return entry;
+                }
             }
         }
 

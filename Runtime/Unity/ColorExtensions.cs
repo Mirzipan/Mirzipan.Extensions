@@ -123,6 +123,28 @@ namespace Mirzipan.Extensions.Unity
         }
 
         /// <summary>
+        /// Returns this <see cref="Color"/> darkened.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="percentage">Amount between 0% and 100% by which this color should be darkened</param>
+        /// <returns></returns>
+        public static Color Darken(this Color @this, int percentage)
+        {
+            return WithRGBMultiplied(@this, percentage / 100f);
+        }
+
+        /// <summary>
+        /// Returns this <see cref="Color"/> lightened.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="percentage">Amount between 0% and 100% by which this color should be lightened</param>
+        /// <returns></returns>
+        public static Color Lightened(this Color @this, int percentage)
+        {
+            return WithRGBMultiplied(@this, -1f * percentage / 100f);
+        }
+
+        /// <summary>
         /// Returns a random <see cref="Color"/> that is darker than this.
         /// </summary>
         /// <param name="this"></param>
@@ -146,6 +168,27 @@ namespace Mirzipan.Extensions.Unity
             float g = Random.Range(@this.g, 1f);
             float b = Random.Range(@this.b, 1f);
             return new Color(r, g, b);
+        }
+
+        /// <summary>
+        /// Returns the perceived brightness of this <see cref="Color"/> between 0 and 255.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static int PerceivedBrightness(this Color @this)
+        {
+            Color32 c = @this;
+            return (int)System.Math.Sqrt(c.r * c.r * .299f + c.g * c.g * .587f + c.b * c.b * .114f);
+        }
+
+        /// <summary>
+        /// Returns a suitable text color based on the perceived brightness of this <see cref="Color"/>.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static Color VisibleTextColor(this Color @this)
+        {
+            return PerceivedBrightness(@this) > 130 ? Color.black : Color.white;
         }
 
         /// <summary>

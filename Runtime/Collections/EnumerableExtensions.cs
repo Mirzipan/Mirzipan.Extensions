@@ -15,7 +15,7 @@ namespace Mirzipan.Extensions.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static bool IsNullOrEmpty<T>(this IEnumerable<T> @this) => @this == null || !@this.Any();
-        
+
         /// <summary>
         /// Returns true if this <see cref="IEnumerable{T}"/> is not null or empty.
         /// </summary>
@@ -147,7 +147,8 @@ namespace Mirzipan.Extensions.Collections
         /// <typeparam name="TValue">Old element type</typeparam>
         /// <typeparam name="TResult">New element type</typeparam>
         /// <returns></returns>
-        public static IEnumerable<TResult> ForEach<TValue, TResult>(this IEnumerable<TValue> @this, Func<TValue, int, TResult> function)
+        public static IEnumerable<TResult> ForEach<TValue, TResult>(this IEnumerable<TValue> @this,
+            Func<TValue, int, TResult> function)
         {
             int index = 0;
             foreach (TValue entry in @this)
@@ -218,5 +219,97 @@ namespace Mirzipan.Extensions.Collections
         }
 
         #endregion Linq
+
+        #region Min Max
+
+        /// <summary>
+        /// Returns the object with the minimum value of the specified function.
+        /// </summary>
+        /// <returns>The object.</returns>
+        /// <param name="this"></param>
+        /// <param name="selector">Transforms element into key</param>
+        /// <typeparam name="TValue">Type of the enumerable element</typeparam>
+        /// <typeparam name="TKey">Type used to determine the key value</typeparam>
+        public static TValue MinObject<TValue, TKey>(this IEnumerable<TValue> @this, Func<TValue, TKey> selector)
+            where TKey : IComparable<TKey>
+        {
+            bool isEmpty = true;
+            TValue minValue = default;
+            TKey minKey = default;
+
+            foreach (TValue item in @this)
+            {
+                if (isEmpty)
+                {
+                    minValue = item;
+                    minKey = selector(minValue);
+                    isEmpty = false;
+                }
+                else
+                {
+                    TKey currentKey = selector(item);
+                    if (currentKey.CompareTo(minKey) >= 0)
+                    {
+                        continue;
+                    }
+
+                    minKey = currentKey;
+                    minValue = item;
+                }
+            }
+
+            if (isEmpty)
+            {
+                throw new InvalidOperationException("Sequence is empty.");
+            }
+
+            return minValue;
+
+            #endregion Min Max
+        }
+
+        /// <summary>
+        /// Returns the object with the maximum value of the specified function.
+        /// </summary>
+        /// <returns>The object.</returns>
+        /// <param name="this"></param>
+        /// <param name="selector">Transforms element into key</param>
+        /// <typeparam name="TValue">Type of the enumerable element</typeparam>
+        /// <typeparam name="TKey">Type used to determine the key value</typeparam>
+        public static TValue MaxObject<TValue, TKey>(this IEnumerable<TValue> @this, Func<TValue, TKey> selector)
+            where TKey : IComparable<TKey>
+        {
+            bool isEmpty = true;
+            TValue maxValue = default;
+            TKey maxKey = default;
+
+            foreach (TValue item in @this)
+            {
+                if (isEmpty)
+                {
+                    maxValue = item;
+                    maxKey = selector(maxValue);
+                    isEmpty = false;
+                }
+                else
+                {
+                    TKey currentKey = selector(item);
+                    if (currentKey.CompareTo(maxKey) <= 0)
+                    {
+                        continue;
+                    }
+
+                    maxKey = currentKey;
+                    maxValue = item;
+                }
+            }
+
+            if (isEmpty)
+            {
+                throw new InvalidOperationException("Sequence is empty.");
+            }
+
+            return maxValue;
+        }
     }
 }

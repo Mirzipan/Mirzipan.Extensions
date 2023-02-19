@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.0] - 2023-02-19
+
+### Added
+- Even, Odd, and Every extensions for Enumerable
+- Added more colors extensions (most notably PerceivedBrightness and VisibleTextColor)
+
+### Removed
+- All methods previously marked as Obsolete
+
 ## [1.2.3] - 2023-02-17
 
 ### Added

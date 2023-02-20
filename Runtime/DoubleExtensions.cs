@@ -6,6 +6,21 @@ namespace Mirzipan.Extensions
     public static class DoubleExtensions
     {
         /// <summary>
+        /// Returns true if this is zero or within the tolerance interval.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="tolerance"></param>
+        /// <returns></returns>
+        public static bool IsZero(this double @this, double tolerance = double.Epsilon) => Math.Abs(@this) < tolerance;
+        
+        /// <summary>
+        /// Returns true if this is neither NaN nor Infinity.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool IsValid(this double @this) => !double.IsNaN(@this) && !double.IsInfinity(@this);
+        
+        /// <summary>
         /// Returns true if this is between 0 and 1.
         /// </summary>
         /// <param name="this"></param>

@@ -11,7 +11,7 @@ namespace Mirzipan.Extensions
         /// <param name="this"></param>
         /// <param name="tolerance"></param>
         /// <returns></returns>
-        public static bool IsZero(this float @this, float tolerance = float.Epsilon) => Math.Abs(@this) < tolerance;
+        public static bool IsZero(this float @this, float tolerance = float.Epsilon) => Math.Abs(@this) <= tolerance;
         
         /// <summary>
         /// Returns true if this is neither NaN nor Infinity.

@@ -8,6 +8,7 @@ Collection of extension and utility methods I can created or collected over the 
 
 ### Basic Types
 - Boolean
+- Byte
 - Double
 - Float
 - Integer

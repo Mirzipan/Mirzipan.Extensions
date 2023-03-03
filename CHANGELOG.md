@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1] - 2023-03-03
+
+### Added
+- Float and Double extensions for checking for zero and validity (not NaN and not infinity)
+- MinObject and MaxObject enumerable extensions
+- Byte extensions to allow using it as a bitmask
+
 ## [1.3.0] - 2023-02-19
 
 ### Added

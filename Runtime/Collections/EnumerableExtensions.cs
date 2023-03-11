@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -217,6 +218,40 @@ namespace Mirzipan.Extensions.Collections
                 }
             }
         }
+
+        /// <summary>
+        /// Orders the sequence ascending or descending, and based on the selector provided.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="selector"></param>
+        /// <param name="ascending"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <returns></returns>
+        public static IOrderedEnumerable<T> OrderBy<T, TKey>(
+            this IEnumerable<T> @this, 
+            Func<T, TKey> selector,
+            bool ascending)
+        {
+            return ascending ? @this.OrderBy(selector) : @this.OrderByDescending(selector);
+        } 
+
+        /// <summary>
+        /// Orders the sequence ascending or descending, and based on the selector provided.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="selector"></param>
+        /// <param name="ascending"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <returns></returns>
+        public static IOrderedEnumerable<T> ThenBy<T, TKey>(
+            this IOrderedEnumerable<T> @this, 
+            Func<T, TKey> selector,
+            bool ascending)
+        {
+            return ascending ? @this.ThenBy(selector) : @this.ThenByDescending(selector);
+        } 
 
         #endregion Linq
 

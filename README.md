@@ -35,6 +35,7 @@ Collection of extension and utility methods I can created or collected over the 
 - Bounds
 - BoundsInt
 - Color
+- Color32
 - Rect
 - RectInt
 - Vector2

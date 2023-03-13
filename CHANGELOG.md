@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.2] - 2023-03-13
+
+### Added
+- OrderBy and ThenBy IEnumerable extensions with selectable direction
+- Color32 extensions
+
+### Changed
+- IsZero for float and double now checks if number is smaller or equal to tolerance, instead of just smaller
+
 ## [1.3.1] - 2023-03-03
 
 ### Added

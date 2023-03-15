@@ -20,6 +20,17 @@ namespace Mirzipan.Extensions.Unity
         #region Equality
 
         /// <summary>
+        /// Returns true if both colors are equal.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public static bool Equals(this Color32 @this, Color32 other)
+        {
+            return @this.r == other.r && @this.g == other.g && @this.b == other.b && @this.a == other.a;
+        }
+
+        /// <summary>
         /// Returns true if this <see cref="Color32"/>'s alpha is 255.
         /// </summary>
         /// <param name="this"></param>
@@ -31,20 +42,14 @@ namespace Mirzipan.Extensions.Unity
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static bool IsWhite(this Color32 @this)
-        {
-            return @this.r + @this.g + @this.b >= 3 * 255;
-        }
+        public static bool IsWhite(this Color32 @this) => @this.Equals(Colors32.White);
 
         /// <summary>
         /// Returns true if all components except for alpha are 0.
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static bool IsBlack(this Color32 @this)
-        {
-            return @this.r + @this.g + @this.b == 0;
-        }
+        public static bool IsBlack(this Color32 @this) => @this.Equals(Colors32.Black);
 
         /// <summary>
         /// Returns true if the greatest component of this <see cref="Color32"/> is red.
@@ -66,6 +71,20 @@ namespace Mirzipan.Extensions.Unity
         /// <param name="this"></param>
         /// <returns></returns>
         public static bool IsBlueish(this Color32 @this) => @this.b > @this.r && @this.b > @this.g;
+
+        /// <summary>
+        /// Returns true if this color's perceived brightness is high.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool IsLight(this Color32 @this) => @this.PerceivedBrightness() > 130;
+
+        /// <summary>
+        /// Returns true if this color's perceived brightness is low.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool IsDark(this Color32 @this) => @this.PerceivedBrightness() <= 130;
 
         #endregion Equality
 
@@ -132,7 +151,7 @@ namespace Mirzipan.Extensions.Unity
         /// <returns></returns>
         public static Color32 VisibleTextColor(this Color32 @this)
         {
-            return PerceivedBrightness(@this) > 130 ? new Color32(0, 0, 0, 255) : new Color32(255, 255, 255, 255);
+            return PerceivedBrightness(@this) > 130 ? Colors32.Black : Colors32.White;
         }
 
         #endregion Misc

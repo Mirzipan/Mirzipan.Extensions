@@ -79,6 +79,20 @@ namespace Mirzipan.Extensions.Unity
         /// <returns></returns>
         public static bool IsBlueish(this Color @this) => @this.b > @this.r && @this.b > @this.g;
 
+        /// <summary>
+        /// Returns true if this color's perceived brightness is high.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool IsLight(this Color @this) => @this.PerceivedBrightness() > 130;
+
+        /// <summary>
+        /// Returns true if this color's perceived brightness is low.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool IsDark(this Color @this) => @this.PerceivedBrightness() <= 130;
+
         #endregion Equality
 
         #region Misc

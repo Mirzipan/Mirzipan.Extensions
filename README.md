@@ -34,8 +34,8 @@ Collection of extension and utility methods I can created or collected over the 
 ### Unity Types
 - Bounds
 - BoundsInt
-- Color (includes static values)
-- Color32 (includes static values)
+- Color
+- Color32
 - Rect
 - RectInt
 - Vector2
@@ -57,3 +57,11 @@ Collection of extension and utility methods I can created or collected over the 
 - CanvasGroup
 - Slider
 - Toggle
+
+## Statics
+
+### Colors
+
+Collection of 141 pre-defined commonly used colors with a variant for `Color` and `Color32`.
+
+For more info, see [Microsoft Documentation](https://learn.microsoft.com/en-us/dotnet/api/system.windows.media.colors?view=windowsdesktop-7.0)

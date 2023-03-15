@@ -34,8 +34,8 @@ Collection of extension and utility methods I can created or collected over the 
 ### Unity Types
 - Bounds
 - BoundsInt
-- Color
-- Color32
+- Color (includes static values)
+- Color32 (includes static values)
 - Rect
 - RectInt
 - Vector2

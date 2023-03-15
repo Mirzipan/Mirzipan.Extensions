@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.3] - 2023-03-15
+
+### Added
+- Colors and Colors32 with 141 predefined color values
+- Color and Color32 extensions
+
 ## [1.3.2] - 2023-03-13
 
 ### Added

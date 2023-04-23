@@ -58,6 +58,19 @@ namespace Mirzipan.Extensions.Collections
             value = @this[index];
             return true;
         }
+
+        /// <summary>
+        /// Returns the value at the index specified. If out-of-bound, returns default value instead.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="index"></param>
+        /// <param name="default"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static T GetOrDefault<T>(this IList<T> @this, int index, T @default = default)
+        {
+            return @this.IsIndexInRange(index) ? @this[index] : @default;
+        }
         
         /// <summary>
         /// Removes element by swapping, will not preserve order!

@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.4.0] - 2023-04-23
+
+### Added
+- Type extensions
+- IsOneOf extension for Object
+- GetOrDefault extension for List
+- Except and SelectNotNull for IEnumerable
+- Deconstruct for KeyValuePair
+
+### Changed
+- moved some extension into new files
+
 ## [1.3.3] - 2023-03-15
 
 ### Added

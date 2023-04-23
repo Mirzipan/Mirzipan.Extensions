@@ -26,6 +26,9 @@ Collection of extension and utility methods I can created or collected over the 
 - Enumerable
 - HashSet
 
+### Reflection
+- Type
+
 ## Unity Extensions
 
 ### Basic Types

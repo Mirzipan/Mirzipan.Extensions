@@ -89,6 +89,16 @@ namespace Mirzipan.Extensions.Unity.Math
             return delta.sqrMagnitude <= tolerance * tolerance;
         }
 
+        public static bool IsZero(this Vector4 @this, float tolerance = float.Epsilon)
+        {
+            return @this.Approximately(Vector4.zero, tolerance);
+        }
+
+        public static bool NotZero(this Vector4 @this, float tolerance = float.Epsilon)
+        {
+            return !@this.Approximately(Vector4.zero, tolerance);
+        }
+
         #endregion Equality
     }
 }

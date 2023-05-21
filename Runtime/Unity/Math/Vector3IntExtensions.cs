@@ -45,6 +45,14 @@ namespace Mirzipan.Extensions.Unity.Math
 
         #endregion Clamp
 
+        #region Equality
+
+        public static bool IsZero(this Vector3Int @this) => @this == Vector3Int.zero;
+
+        public static bool NotZero(this Vector3Int @this) => @this != Vector3Int.zero;
+
+        #endregion Equality
+
         #region Containment
 
         public static bool IsInside(this Vector3Int @this, BoundsInt rect) => rect.Contains(@this);

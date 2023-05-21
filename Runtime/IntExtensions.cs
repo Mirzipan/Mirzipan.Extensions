@@ -4,7 +4,19 @@ using UnityEngine;
 namespace Mirzipan.Extensions
 {
     public static class IntExtensions
-    {        
+    {
+        #region Equality
+
+        public static bool IsZero(this int @this) => @this == 0;
+        
+        public static bool NotZero(this int @this) => @this == 0;
+
+        public static bool IsMin(this int @this) => @this == int.MinValue;
+        
+        public static bool IsMax(this int @this) => @this == int.MaxValue;
+        
+        #endregion Equality
+        
         /// <summary>
         /// Clamps this between min and max values.
         /// </summary>

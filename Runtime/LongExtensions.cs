@@ -2,6 +2,18 @@
 {
     public static class LongExtensions
     {        
+        #region Equality
+
+        public static bool IsZero(this long @this) => @this == 0L;
+        
+        public static bool NotZero(this long @this) => @this == 0L;
+
+        public static bool IsMin(this long @this) => @this == long.MinValue;
+        
+        public static bool IsMax(this long @this) => @this == long.MaxValue;
+        
+        #endregion Equality
+        
         /// <summary>
         /// Clamps this between min and max values.
         /// </summary>

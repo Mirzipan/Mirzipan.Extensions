@@ -4,6 +4,25 @@ namespace Mirzipan.Extensions.Unity
 {
     public static class Color32Extensions
     {
+        #region Deconstruction
+       
+        public static void Deconstruct(this Color32 @this, out byte r, out byte g, out byte b)
+        {
+            r = @this.r;
+            g = @this.g;
+            b = @this.b;
+        }
+       
+        public static void Deconstruct(this Color32 @this, out byte r, out byte g, out byte b, out byte a)
+        {
+            r = @this.r;
+            g = @this.g;
+            b = @this.b;
+            a = @this.a;
+        }
+
+        #endregion Deconstruction
+        
         #region Get/Set
 
         public static Color32 WithR(this Color32 @this, byte red) => new Color32(red, @this.g, @this.b, @this.a);

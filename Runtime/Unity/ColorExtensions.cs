@@ -4,6 +4,25 @@ namespace Mirzipan.Extensions.Unity
 {
     public static class ColorExtensions
     {
+        #region Deconstruction
+       
+        public static void Deconstruct(this Color @this, out float r, out float g, out float b)
+        {
+            r = @this.r;
+            g = @this.g;
+            b = @this.b;
+        }
+       
+        public static void Deconstruct(this Color @this, out float r, out float g, out float b, out float a)
+        {
+            r = @this.r;
+            g = @this.g;
+            b = @this.b;
+            a = @this.a;
+        }
+
+        #endregion Deconstruction
+        
         #region Get/Set
 
         public static Color WithR(this Color @this, float red) => new Color(red, @this.g, @this.b, @this.a);

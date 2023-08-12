@@ -4,6 +4,8 @@ namespace Mirzipan.Extensions.Collections
 {
     public static class CollectionExtensions
     {
+        #region Queries
+
         /// <summary>
         /// Returns true if this <see cref="ICollection{T}"/> is null or empty.
         /// </summary>
@@ -27,5 +29,7 @@ namespace Mirzipan.Extensions.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static ICollection<T> NullIfEmpty<T>(this ICollection<T> @this) => @this == null || @this.Count == 0 ? null : @this;
+
+        #endregion Queries
     }
 }

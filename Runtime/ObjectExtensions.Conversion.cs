@@ -27,7 +27,7 @@ namespace Mirzipan.Extensions
         /// <param name="this"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T[] AsArray<T>(this T @this) => new[] { @this };
+        public static T[] InArray<T>(this T @this) => new[] { @this };
 
         /// <summary>
         /// Returns an <see cref="IList{T}"/> with this as its element.
@@ -35,7 +35,7 @@ namespace Mirzipan.Extensions
         /// <param name="this"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static IList<T> AsList<T>(this T @this) => new List<T> { @this };
+        public static IList<T> InList<T>(this T @this) => new List<T> { @this };
 
         /// <summary>
         /// Returns a <see cref="HashSet{T}"/> with this as its element.
@@ -43,7 +43,7 @@ namespace Mirzipan.Extensions
         /// <param name="this"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static HashSet<T> AsHashSet<T>(this T @this) => new HashSet<T> { @this };
+        public static HashSet<T> InHashSet<T>(this T @this) => new HashSet<T> { @this };
 
         /// <summary>
         /// Returns a <see cref="IDictionary{TKey, TValue}"/> with this as its element.
@@ -53,7 +53,7 @@ namespace Mirzipan.Extensions
         /// <typeparam name="TKey"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
-        public static IDictionary<TKey, TValue> AsDictionary<TKey, TValue>(this TValue @this,
+        public static IDictionary<TKey, TValue> InDictionary<TKey, TValue>(this TValue @this,
             Func<TValue, TKey> keySelector)
         {
             return new Dictionary<TKey, TValue>

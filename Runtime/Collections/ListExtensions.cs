@@ -5,6 +5,8 @@ namespace Mirzipan.Extensions.Collections
 {
     public static class ListExtensions
     {
+        #region Queries
+
         /// <summary>
         /// Returns true if this <see cref="IList{T}"/> is null or empty.
         /// </summary>
@@ -12,7 +14,7 @@ namespace Mirzipan.Extensions.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static bool IsNullOrEmpty<T>(this IList<T> @this) => @this == null || @this.Count == 0;
-        
+
         /// <summary>
         /// Returns true if this <see cref="IList{T}"/> is not null or empty.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Mirzipan.Extensions.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static bool NotNullOrEmpty<T>(this IList<T> @this) => !@this.IsNullOrEmpty();
-        
+
         /// <summary>
         /// Returns true if index is valid for this <see cref="IList{T}"/>.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Mirzipan.Extensions.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static bool IsOutOfBounds<T>(this IList<T> @this, int index) => index < 0 || index >= @this.Count;
-        
+
         /// <summary>
         /// Returns true if index is valid for this <see cref="IList{T}"/>.
         /// </summary>
@@ -71,7 +73,50 @@ namespace Mirzipan.Extensions.Collections
         {
             return @this.IsIndexInRange(index) ? @this[index] : @default;
         }
-        
+
+        #endregion Queries
+
+        #region Manipulation
+
+        /// <summary>
+        /// Returns the list with item appended to it.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="item"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static IList<T> WithItem<T>(this IList<T> @this, T item)
+        {
+            @this.Add(item);
+            return @this;
+        }
+
+        /// <summary>
+        /// Returns the list with items appended to it.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="items"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static List<T> WithItems<T>(this List<T> @this, params T[] items)
+        {
+            @this.AddRange(items);
+            return @this;
+        }
+
+        /// <summary>
+        /// Returns the list with items appended to it.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="items"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static List<T> WithItems<T>(this List<T> @this, IEnumerable<T> items)
+        {
+            @this.AddRange(items);
+            return @this;
+        }
+
         /// <summary>
         /// Removes element by swapping, will not preserve order!
         /// </summary>
@@ -96,7 +141,7 @@ namespace Mirzipan.Extensions.Collections
             @this.RemoveAt(lastIndex);
             return true;
         }
-        
+
         /// <summary>
         /// Removes element at index swapping, will not preserve order!
         /// </summary>
@@ -186,5 +231,7 @@ namespace Mirzipan.Extensions.Collections
 
             return Swap(@this, index1, index2);
         }
+
+        #endregion Manipulation
     }
 }

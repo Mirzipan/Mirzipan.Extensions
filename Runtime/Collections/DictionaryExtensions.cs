@@ -4,6 +4,17 @@ namespace Mirzipan.Extensions.Collections
 {
     public static class DictionaryExtensions
     {
+        #region Queries
+
+        public static void Deconstruct<TKey, TValue>(
+            this KeyValuePair<TKey, TValue> @this, 
+            out TKey key,
+            out TValue value)
+        {
+            key = @this.Key;
+            value = @this.Value;
+        }
+
         /// <summary>
         /// Returns true if this <see cref="IDictionary{TKey,TValue}"/> is null or empty.
         /// </summary>
@@ -12,7 +23,7 @@ namespace Mirzipan.Extensions.Collections
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         public static bool IsNullOrEmpty<TKey, TValue>(this IDictionary<TKey, TValue> @this) => @this == null || @this.Count == 0;
-        
+
         /// <summary>
         /// Returns true if this <see cref="IDictionary{TKey,TValue}"/> is not null or empty.
         /// </summary>
@@ -53,6 +64,10 @@ namespace Mirzipan.Extensions.Collections
         {
             return @this.GetValueOrDefault(key, default(TValue));
         }
+
+        #endregion Queries
+
+        #region Manipulation
 
         /// <summary>
         /// Gets the value associated with the specified key.
@@ -98,13 +113,6 @@ namespace Mirzipan.Extensions.Collections
             return true;
         }
 
-        public static void Deconstruct<TKey, TValue>(
-            this KeyValuePair<TKey, TValue> @this, 
-            out TKey key,
-            out TValue value)
-        {
-            key = @this.Key;
-            value = @this.Value;
-        }
+        #endregion Manipulation
     }
 }

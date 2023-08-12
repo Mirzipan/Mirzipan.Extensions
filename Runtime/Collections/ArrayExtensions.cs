@@ -4,6 +4,8 @@ namespace Mirzipan.Extensions.Collections
 {
     public static class ArrayExtensions
     {
+        #region Queries
+
         /// <summary>
         /// Returns true if this <see cref="Array"/> is null or empty.
         /// </summary>
@@ -11,7 +13,7 @@ namespace Mirzipan.Extensions.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static bool IsNullOrEmpty<T>(this T[] @this) => @this == null || @this.Length == 0;
-        
+
         /// <summary>
         /// Returns true if this <see cref="Array"/> is not null or empty.
         /// </summary>
@@ -74,7 +76,7 @@ namespace Mirzipan.Extensions.Collections
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static bool IsOutOfBounds<T>(this T[] @this, int index) => index < 0 || index >= @this.Length;
-        
+
         /// <summary>
         /// Returns true if index is valid for this <see cref="Array"/>.
         /// </summary>
@@ -103,6 +105,10 @@ namespace Mirzipan.Extensions.Collections
             value = @this[index];
             return true;
         }
+
+        #endregion Queries
+
+        #region Manipulation
 
         /// <summary>
         /// Fill this <see cref="Array"/> with values returned by the valueFactory function.
@@ -154,5 +160,7 @@ namespace Mirzipan.Extensions.Collections
             (@this[index1], @this[index2]) = (@this[index2], @this[index1]);
             return @this;
         }
+
+        #endregion Manipulation
     }
 }

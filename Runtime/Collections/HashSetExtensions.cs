@@ -4,6 +4,47 @@ namespace Mirzipan.Extensions.Collections
 {
     public static class HashSetExtensions
     {
+        #region Manipulation
+
+        /// <summary>
+        /// Returns the hashset with item appended to it.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="item"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static HashSet<T> WithItem<T>(this HashSet<T> @this, T item)
+        {
+            @this.Add(item);
+            return @this;
+        }
+
+        /// <summary>
+        /// Returns the hashset with items appended to it.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="items"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static HashSet<T> WithItems<T>(this HashSet<T> @this, params T[] items)
+        {
+            @this.AddRange(items);
+            return @this;
+        }
+
+        /// <summary>
+        /// Returns the hashset with items appended to it.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="items"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static HashSet<T> WithItems<T>(this HashSet<T> @this, IEnumerable<T> items)
+        {
+            @this.AddRange(items);
+            return @this;
+        }
+
         /// <summary>
         /// Adds values from the source.
         /// </summary>
@@ -26,7 +67,7 @@ namespace Mirzipan.Extensions.Collections
 
             return result;
         }
-        
+
         /// <summary>
         /// Removes values from the source.
         /// </summary>
@@ -49,5 +90,7 @@ namespace Mirzipan.Extensions.Collections
 
             return result;
         }
+
+        #endregion Manipulation
     }
 }

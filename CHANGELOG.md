@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0] - 2023-08-12
+
+### Added
+- WithItem and WithItems extensions for List and HashSet
+
+### Changed
+- Renamed AsArray, AsList, AsHastSet, and AsDictionary methods to make it unambiguous with casting
+
+### Fixed
+- NotZero checks for int, uint, long and ulong now return the correct value
+
 ## [1.4.0] - 2023-04-23
 
 ### Added

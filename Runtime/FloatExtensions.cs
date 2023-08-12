@@ -5,6 +5,8 @@ namespace Mirzipan.Extensions
 {
     public static class FloatExtensions
     {
+        #region Equality
+
         /// <summary>
         /// Returns true if this is zero or within the tolerance interval.
         /// </summary>
@@ -12,14 +14,38 @@ namespace Mirzipan.Extensions
         /// <param name="tolerance"></param>
         /// <returns></returns>
         public static bool IsZero(this float @this, float tolerance = float.Epsilon) => Math.Abs(@this) <= tolerance;
-        
+
         /// <summary>
         /// Returns true if this is neither NaN nor Infinity.
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
         public static bool IsValid(this float @this) => !float.IsNaN(@this) && !float.IsInfinity(@this);
-        
+
+        /// <summary>
+        /// Returns true if this and the other value are equal enough.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="other"></param>
+        /// <param name="tolerance">Optional value that specifies how close this and the other value need to be in order to be considered equal.</param>
+        /// <returns></returns>
+        public static bool Approximately(this float @this, float other, float tolerance)
+        {
+            return Mathf.Abs(@this - other) <= Mathf.Abs(tolerance);
+        }
+
+        /// <summary>
+        /// Returns true if this and the other value are equal enough.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public static bool Approximately(this float @this, float other) => Mathf.Approximately(@this, other);
+
+        #endregion Equality
+
+        #region Queries
+
         /// <summary>
         /// Returns true if this is between 0 and 1.
         /// </summary>
@@ -38,26 +64,10 @@ namespace Mirzipan.Extensions
         {
             return @this >= min && @this <= max;
         }
-        
-        /// <summary>
-        /// Returns true if this and the other value are equal enough.
-        /// </summary>
-        /// <param name="this"></param>
-        /// <param name="other"></param>
-        /// <param name="tolerance">Optional value that specifies how close this and the other value need to be in order to be considered equal.</param>
-        /// <returns></returns>
-        public static bool Approximately(this float @this, float other, float tolerance)
-        {
-            return Mathf.Abs(@this - other) <= Mathf.Abs(tolerance);
-        }
-        
-        /// <summary>
-        /// Returns true if this and the other value are equal enough.
-        /// </summary>
-        /// <param name="this"></param>
-        /// <param name="other"></param>
-        /// <returns></returns>
-        public static bool Approximately(this float @this, float other) => Mathf.Approximately(@this, other);
+
+        #endregion Queries
+
+        #region Manipulation
 
         /// <summary>
         /// Clamps this between 0 and 1.
@@ -95,7 +105,7 @@ namespace Mirzipan.Extensions
         /// <param name="this"></param>
         /// <returns></returns>
         public static float Ceil(this float @this) => (float) Math.Ceiling(@this);
-        
+
         /// <summary>
         /// Rounds this to the nearest integer greater than or equal to this. 
         /// </summary>
@@ -109,12 +119,14 @@ namespace Mirzipan.Extensions
         /// <param name="this"></param>
         /// <returns></returns>
         public static float Floor(this float @this) => (float) Math.Floor(@this);
-        
+
         /// <summary>
         /// Rounds this to the nearest integer smaller than or equal to this. 
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
         public static int FloorToInt(this float @this) => (int) Math.Floor(@this);
+
+        #endregion Manipulation
     }
 }

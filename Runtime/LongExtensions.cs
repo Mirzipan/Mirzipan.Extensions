@@ -6,7 +6,7 @@
 
         public static bool IsZero(this long @this) => @this == 0L;
         
-        public static bool NotZero(this long @this) => @this == 0L;
+        public static bool NotZero(this long @this) => @this != 0L;
 
         public static bool IsMin(this long @this) => @this == long.MinValue;
         

@@ -6,7 +6,7 @@
 
         public static bool IsZero(this ulong @this) => @this == 0UL;
         
-        public static bool NotZero(this ulong @this) => @this == 0UL;
+        public static bool NotZero(this ulong @this) => @this != 0UL;
 
         public static bool IsMin(this ulong @this) => @this == ulong.MinValue;
         

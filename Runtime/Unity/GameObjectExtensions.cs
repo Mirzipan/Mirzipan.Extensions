@@ -129,6 +129,16 @@ namespace Mirzipan.Extensions.Unity
         /// <returns></returns>
         public static bool IsPrefab(this GameObject @this) => @this.scene.name.IsNullOrEmpty();
 
+        /// <summary>
+        /// Sets layer to every object in hierarchy under this <see cref="GameObject"/>.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="layer">New layer to set</param>
+        public static void SetLayerOnHierarchy(this GameObject @this, int layer)
+        {
+            @this.transform.ExecuteOnHierarchy(x => x.gameObject.layer = layer);
+        }
+        
         #endregion Hierarchy
     }
 }

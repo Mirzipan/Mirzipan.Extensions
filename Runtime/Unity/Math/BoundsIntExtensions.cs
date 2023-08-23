@@ -29,7 +29,13 @@ namespace Mirzipan.Extensions.Unity.Math
 
         public static BoundsInt MoveTo(this ref BoundsInt @this, Vector3Int center) => new BoundsInt(center, @this.size);
 
-        public static BoundsInt Resize(this ref BoundsInt @this, Vector3Int size) => new BoundsInt(@this.position, size);
+        public static BoundsInt Move(this ref BoundsInt @this, Vector3Int offset) => new BoundsInt(@this.position + offset, @this.size);
+
+        public static BoundsInt Resize(this ref BoundsInt @this, Vector3Int size)   => new BoundsInt(@this.position, size);
+        
+        public static BoundsInt Expand(this ref BoundsInt @this, Vector3Int amount) => new BoundsInt(@this.position - amount, @this.size + 2 *amount);
+
+        public static BoundsInt Expand(this ref BoundsInt @this, int amount) => @this.Expand(new Vector3Int(amount, amount, amount));
 
         #endregion Manipulation
 

@@ -127,6 +127,12 @@ namespace Mirzipan.Extensions
         /// <returns></returns>
         public static int FloorToInt(this float @this) => (int) Math.Floor(@this);
 
+        /// <summary>
+        /// Returns -1 for negative numbers, 1 for positive numbers and 0 for zero.
+        /// </summary>
+        /// <param name="this"></param>
+        public static float Sign(this float @this) => Mathf.Sign(@this);
+        
         #endregion Manipulation
     }
 }

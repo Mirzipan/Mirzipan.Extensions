@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using Mirzipan.Extensions.Text;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Mirzipan.Extensions.Unity
 {
@@ -140,7 +142,7 @@ namespace Mirzipan.Extensions.Unity
         /// <returns></returns>
         public static void DestroyChildren<T>(this Transform @this) where T : Component
         {
-            for (int i = 0; i < @this.childCount; i++)
+            for(int i = @this.childCount - 1; i >= 0; --i)
             {
                 var comp = @this.GetChild(i).GetComponent<T>();
                 if (!comp)
@@ -169,7 +171,7 @@ namespace Mirzipan.Extensions.Unity
         /// <returns></returns>
         public static void DestroyChildren(this Transform @this)
         {
-            for (int i = 0; i < @this.childCount; i++)
+            for(int i = @this.childCount - 1; i >= 0; --i)
             {
                 var go = @this.GetChild(i).gameObject;
 
@@ -240,6 +242,20 @@ namespace Mirzipan.Extensions.Unity
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Executes action on every child in hierarchy under this <see cref="Transform"/>.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static void ExecuteOnHierarchy(this Transform @this, Action<Transform> action)
+        {
+            action(@this);
+            foreach (Transform child in @this)
+            {
+                ExecuteOnHierarchy(child, action);
+            }
+        }
+        
         #endregion Hierarchy
     }
 }

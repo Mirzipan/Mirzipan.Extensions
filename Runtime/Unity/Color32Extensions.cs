@@ -229,5 +229,19 @@ namespace Mirzipan.Extensions.Unity
         }
 
         #endregion Clamp
+        
+        #region Hex
+
+        public static string ToHexRGB(this Color32 @this)
+        {
+            return $"{@this.r:X2}{@this.g:X2}{@this.b:X2}";
+        }
+
+        public static string ToHexRGBA(this Color32 @this)
+        {
+            return $"{@this.r:X2}{@this.g:X2}{@this.b:X2}{@this.a:X2}";
+        }
+
+        #endregion
     }
 }

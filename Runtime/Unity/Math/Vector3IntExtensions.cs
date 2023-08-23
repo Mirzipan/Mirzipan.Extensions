@@ -58,5 +58,33 @@ namespace Mirzipan.Extensions.Unity.Math
         public static bool IsInside(this Vector3Int @this, BoundsInt rect) => rect.Contains(@this);
 
         #endregion Containment
+        
+        #region Manipulation
+
+        public static Vector3Int Mul(this Vector3Int @this, Vector3Int other)
+        {
+            return new Vector3Int(@this.x * other.x, @this.y * other.y, @this.z * other.z);
+        }
+
+        public static Vector3Int Abs(this Vector3Int @this)
+        {
+            return new Vector3Int(Mathf.Abs(@this.x), Mathf.Abs(@this.y), Mathf.Abs(@this.z));
+        }
+
+        public static Vector3Int Sign(this Vector3Int @this)
+        {
+            return new Vector3Int(@this.x.Sign(), @this.y.Sign(), @this.z.Sign());
+        }
+
+        #endregion
+        
+        #region Conversion
+
+        public static Vector3 ToVector3(this Vector3Int @this)
+        {
+            return new Vector3(@this.x, @this.y, @this.z);
+        }
+
+        #endregion
     }
 }

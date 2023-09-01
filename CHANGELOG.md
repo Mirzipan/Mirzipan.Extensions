@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.1.1] - 2023-09-01
+
+### Fixed
+- Missing meta file for WeakReference extensions
+
 ## [2.1.0] - 2023-09-01
 
 ### Added

@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.1.0] - 2023-09-01
+
+### Added
+- A collection of extensions by `assemblerbot`
+
 ## [2.0.0] - 2023-08-12
 
 ### Added

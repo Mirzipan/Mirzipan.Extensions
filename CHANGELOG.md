@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.0.0] - 2023-09-11
+
+### Changed
+- IsNullOrEmpty in IEnumerable now handles string, array, ICollection<T> and ICollection in addition to itself
+
+### Removed
+- IsNullOrEmpty from string, array, ICollection, IList, and IDictionary
+
 ## [2.1.1] - 2023-09-01
 
 ### Fixed

@@ -16,24 +16,6 @@ namespace Mirzipan.Extensions.Collections
         }
 
         /// <summary>
-        /// Returns true if this <see cref="IDictionary{TKey,TValue}"/> is null or empty.
-        /// </summary>
-        /// <param name="this"></param>
-        /// <typeparam name="TKey"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        public static bool IsNullOrEmpty<TKey, TValue>(this IDictionary<TKey, TValue> @this) => @this == null || @this.Count == 0;
-
-        /// <summary>
-        /// Returns true if this <see cref="IDictionary{TKey,TValue}"/> is not null or empty.
-        /// </summary>
-        /// <param name="this"></param>
-        /// <typeparam name="TKey"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        public static bool NotNullOrEmpty<TKey, TValue>(this IDictionary<TKey, TValue> @this) => !@this.IsNullOrEmpty();
-
-        /// <summary>
         /// Gets the value associated with the specified key or the default value if no value exists.
         /// </summary>
         /// <param name="this"></param>

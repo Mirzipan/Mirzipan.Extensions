@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Mirzipan.Extensions.Collections
@@ -13,7 +14,18 @@ namespace Mirzipan.Extensions.Collections
         /// <param name="this"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static bool IsNullOrEmpty<T>(this IEnumerable<T> @this) => @this == null || !@this.Any();
+        public static bool IsNullOrEmpty<T>(this IEnumerable<T> @this)
+        {
+            return @this switch
+            {
+                null => true,
+                string @string => @string.Length == 0,
+                T[] array => array.Length == 0,
+                ICollection<T> collectionOf => collectionOf.Count == 0,
+                ICollection collection => collection.Count == 0,
+                _ => !@this.Any(),
+            };
+        }
 
         /// <summary>
         /// Returns true if this <see cref="IEnumerable{T}"/> is not null or empty.

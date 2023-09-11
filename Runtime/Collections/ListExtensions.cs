@@ -8,22 +8,6 @@ namespace Mirzipan.Extensions.Collections
         #region Queries
 
         /// <summary>
-        /// Returns true if this <see cref="IList{T}"/> is null or empty.
-        /// </summary>
-        /// <param name="this"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static bool IsNullOrEmpty<T>(this IList<T> @this) => @this == null || @this.Count == 0;
-
-        /// <summary>
-        /// Returns true if this <see cref="IList{T}"/> is not null or empty.
-        /// </summary>
-        /// <param name="this"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static bool NotNullOrEmpty<T>(this IList<T> @this) => !@this.IsNullOrEmpty();
-
-        /// <summary>
         /// Returns true if index is valid for this <see cref="IList{T}"/>.
         /// </summary>
         /// <param name="this"></param>

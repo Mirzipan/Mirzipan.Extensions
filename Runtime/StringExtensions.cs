@@ -5,13 +5,6 @@
         #region Queries
         
         /// <summary>
-        /// Returns true if this <see cref="string"/> is null or empty.
-        /// </summary>
-        /// <param name="this"></param>
-        /// <returns></returns>
-        public static bool IsNullOrEmpty(this string @this) => string.IsNullOrEmpty(@this);
-        
-        /// <summary>
         /// Returns true if this <see cref="string"/> is not null or empty.
         /// </summary>
         /// <param name="this"></param>
